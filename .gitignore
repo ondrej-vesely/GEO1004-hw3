@@ -1,0 +1,35 @@
+# Python stuff
+__pycache__/
+*.py[cod]
+*$py.class
+.ipynb_checkpoints
+.env
+
+# C++ Compiled Object files
+*.slo
+*.lo
+*.o
+
+# C++ Compiled Dynamic libraries
+*.so
+*.dylib
+
+# C++ Compiled Static libraries
+*.lai
+*.la
+*.a
+
+# Visual Studio Files
+out
+.vs
+*.suo
+*.csproj.user
+*.vbproj.user
+ipch
+*sdf
+
+# Clion folder
+.idea
+
+# data folder
+_data
