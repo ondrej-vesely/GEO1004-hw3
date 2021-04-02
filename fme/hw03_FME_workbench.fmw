@@ -21,8 +21,8 @@
 #!   DESCRIPTION=""
 #!   DESTINATION="NONE"
 #!   DESTINATION_ROUTING_FILE=""
-#!   DOC_EXTENTS="9915.95 2145.04"
-#!   DOC_TOP_LEFT="-2638.92 349.579"
+#!   DOC_EXTENTS="11148.8 2963.76"
+#!   DOC_TOP_LEFT="-2638.92 -469.14"
 #!   END_PYTHON=""
 #!   END_TCL=""
 #!   EXPLICIT_BOOKMARK_ORDER="false"
@@ -37,7 +37,7 @@
 #!   HISTORY=""
 #!   IGNORE_READER_FAILURE="No"
 #!   LAST_SAVE_BUILD="FME(R) 2020.1.3.0 (20201001 - Build 20632 - WIN64)"
-#!   LAST_SAVE_DATE="2021-04-02T11:53:29"
+#!   LAST_SAVE_DATE="2021-04-02T12:58:24"
 #!   LOG_FILE=""
 #!   LOG_MAX_RECORDED_FEATURES="200"
 #!   MARKDOWN_DESCRIPTION=""
@@ -56,7 +56,7 @@
 #!   TITLE=""
 #!   USAGE=""
 #!   USE_MARKDOWN=""
-#!   VIEW_POSITION="1058.65 1882.73"
+#!   VIEW_POSITION="2216.07 981.491"
 #!   WARN_INVALID_XFORM_PARAM="Yes"
 #!   WORKSPACE_VERSION="1"
 #!   ZOOM_SCALE="81"
@@ -2023,8 +2023,8 @@
 #!   IS_EDITABLE="false"
 #!   IDENTIFIER="54"
 #!   FEAT_GEOMTYPE="shapefile_first_feature"
-#!   POSITION="4041.9994658711348 607.09808641296297"
-#!   BOUNDING_RECT="4041.9994658711348 607.09808641296297 514.00106825772946 71"
+#!   POSITION="3945.5072728790292 642.18615659191039"
+#!   BOUNDING_RECT="3945.5072728790292 642.18615659191039 514.00106825772946 71"
 #!   ORDER="500000000000050"
 #!   COLLAPSED="true"
 #!   KEYWORD="SHAPEFILE_2"
@@ -2081,8 +2081,8 @@
 #!   IS_EDITABLE="true"
 #!   IDENTIFIER="71"
 #!   FEAT_GEOMTYPE="shapefile_first_feature"
-#!   POSITION="6414.6699690453697 524.46672830925911"
-#!   BOUNDING_RECT="6414.6699690453697 524.46672830925911 430 71"
+#!   POSITION="6891.9123957906204 810.02021741140152"
+#!   BOUNDING_RECT="6891.9123957906204 810.02021741140152 430 71"
 #!   ORDER="500000000000058"
 #!   COLLAPSED="true"
 #!   KEYWORD="SHAPEFILE_4"
@@ -2118,8 +2118,8 @@
 #!   IS_EDITABLE="false"
 #!   IDENTIFIER="85"
 #!   FEAT_GEOMTYPE="json_polygon"
-#!   POSITION="-1041.7390124518527 2123.0482718407425"
-#!   BOUNDING_RECT="-1041.7390124518527 2123.0482718407425 454 71"
+#!   POSITION="-985.83709886481552 1828.1192901435193"
+#!   BOUNDING_RECT="-985.83709886481552 1828.1192901435193 454 71"
 #!   ORDER="500000000000000"
 #!   COLLAPSED="true"
 #!   KEYWORD="GEOJSON_2"
@@ -2282,10 +2282,10 @@
 #! <COMMENT
 #!   IDENTIFIER="83"
 #!   COMMENT_VALUE="&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;&#10;&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;&#10;p, li { white-space: pre-wrap; }&#10;&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;MS Shell Dlg 2&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;&#10;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;calculate diff b/w top &amp;amp; bottom&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;"
-#!   POSITION="6312.5461110166671 1095.5805005580928"
-#!   TOP_LEFT="6312.5461110166671 1095.5805005580928"
-#!   BOTTOM_RIGHT="6766.5461110166671 1094.5805005580928"
-#!   BOUNDING_RECT="6312.5461110166671 1095.5805005580928 454 1"
+#!   POSITION="6145.8777776666657 1139.4405882817769"
+#!   TOP_LEFT="6145.8777776666657 1139.4405882817769"
+#!   BOTTOM_RIGHT="6599.8777776666657 1138.4405882817769"
+#!   BOUNDING_RECT="6145.8777776666657 1139.4405882817769 454 1"
 #!   ORDER="500000000000061"
 #!   FOLLOW_ANCHOR="true"
 #!   INFO_NODE="false"
@@ -2293,6 +2293,51 @@
 #!   COLOUR="1,1,0.95686274509803926,0.78431372549019607"
 #!   SIZE_POLICY="10"
 #!   ANCHORED_NODE="81"
+#! />
+#! <COMMENT
+#!   IDENTIFIER="92"
+#!   COMMENT_VALUE="&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;&#10;&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;&#10;p, li { white-space: pre-wrap; }&#10;&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;MS Shell Dlg 2&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;&#10;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;remove built height &amp;lt;1m&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;"
+#!   POSITION="6200.8741171362299 834.02086741790151"
+#!   TOP_LEFT="6200.8741171362299 834.02086741790151"
+#!   BOTTOM_RIGHT="6763.9565284541723 739.02021741140152"
+#!   BOUNDING_RECT="6200.8741171362299 834.02086741790151 563.08241131794239 95.000650006500052"
+#!   ORDER="500000000000074"
+#!   FOLLOW_ANCHOR="true"
+#!   INFO_NODE="false"
+#!   CUSTOM_USER_COLOR="false"
+#!   COLOUR="0.59607843137254901,0.91764705882352937,0.72549019607843135,0.78431372549019607"
+#!   SIZE_POLICY="10"
+#!   ANCHORED_NODE="84"
+#! />
+#! <COMMENT
+#!   IDENTIFIER="95"
+#!   COMMENT_VALUE="&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;&#10;&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;&#10;p, li { white-space: pre-wrap; }&#10;&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;MS Shell Dlg 2&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;&#10;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;bottom vertex&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;"
+#!   POSITION="4171.3025306796262 192.05780079243277"
+#!   TOP_LEFT="4171.3025306796262 192.05780079243277"
+#!   BOTTOM_RIGHT="4601.3025306796262 191.05780079243277"
+#!   BOUNDING_RECT="4171.3025306796262 192.05780079243277 430 1"
+#!   ORDER="500000000000076"
+#!   FOLLOW_ANCHOR="true"
+#!   INFO_NODE="false"
+#!   CUSTOM_USER_COLOR="false"
+#!   COLOUR="1,1,0.95686274509803926,0.78431372549019607"
+#!   SIZE_POLICY="10"
+#!   ANCHORED_NODE="93"
+#! />
+#! <COMMENT
+#!   IDENTIFIER="98"
+#!   COMMENT_VALUE="&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;&#10;&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;&#10;p, li { white-space: pre-wrap; }&#10;&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;MS Shell Dlg 2&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;&#10;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;top vertex&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;"
+#!   POSITION="4171.3025306796262 -281.18638704905578"
+#!   TOP_LEFT="4171.3025306796262 -281.18638704905578"
+#!   BOTTOM_RIGHT="4601.3025306796262 -282.18638704905578"
+#!   BOUNDING_RECT="4171.3025306796262 -281.18638704905578 430 1"
+#!   ORDER="500000000000078"
+#!   FOLLOW_ANCHOR="true"
+#!   INFO_NODE="false"
+#!   CUSTOM_USER_COLOR="false"
+#!   COLOUR="1,1,0.95686274509803926,0.78431372549019607"
+#!   SIZE_POLICY="10"
+#!   ANCHORED_NODE="96"
 #! />
 #! </COMMENTS>
 #! <CONSTANTS>
@@ -2330,11 +2375,11 @@
 #!   IDENTIFIER="56"
 #!   NAME="get bullding top heights"
 #!   DESCRIPTION=""
-#!   TOP_LEFT="1498 980"
+#!   TOP_LEFT="1401.5078070078946 1015.0880701789474"
 #!   ORDER="500000000000043"
 #!   PALETTE_COLOR="Color4"
-#!   BOTTOM_RIGHT="4703.5 390"
-#!   BOUNDING_RECT="1498 980 3205.5 590"
+#!   BOTTOM_RIGHT="4607.0078070078944 425.08807017894742"
+#!   BOUNDING_RECT="1401.5078070078946 1015.0880701789474 3205.5 590"
 #!   STICKY="true"
 #!   COLOUR="0.85098039215686272,0.92941176470588238,0.60392156862745094,1"
 #!   CONTENTS="54 30 28 29 27 55 24 "
@@ -2344,28 +2389,42 @@
 #!   IDENTIFIER="79"
 #!   NAME="Load dataset"
 #!   DESCRIPTION=""
-#!   TOP_LEFT="-1077.8370988648155 1712.1192901435193"
+#!   TOP_LEFT="-1077.8370988648155 2072.9373960406269"
 #!   ORDER="500000000000054"
 #!   PALETTE_COLOR="Color1"
 #!   BOTTOM_RIGHT="-393.83709886481552 475.31339510925955"
-#!   BOUNDING_RECT="-1077.8370988648155 1712.1192901435193 684 1236.8058950342597"
+#!   BOUNDING_RECT="-1077.8370988648155 2072.9373960406269 684 1597.6240009313674"
 #!   STICKY="true"
 #!   COLOUR="0.59999999999999998,0.80000000000000004,0.80000000000000004,1"
-#!   CONTENTS="57 8 2 "
+#!   CONTENTS="57 85 8 2 "
 #! >
 #! </BOOKMARK>
 #! <BOOKMARK
 #!   IDENTIFIER="80"
 #!   NAME="merge bottom attributes by GID"
 #!   DESCRIPTION=""
-#!   TOP_LEFT="4883.6558332249988 985.57895054259257"
+#!   TOP_LEFT="4716.9874998749974 1029.4390382662768"
 #!   ORDER="500000000000059"
 #!   PALETTE_COLOR="Color5"
-#!   BOTTOM_RIGHT="6942.842870280555 349.57895054259257"
-#!   BOUNDING_RECT="4883.6558332249988 985.57895054259257 2059.1870370555562 636"
+#!   BOTTOM_RIGHT="7309.1008687864642 393.43903826627684"
+#!   BOUNDING_RECT="4716.9874998749974 1029.4390382662768 2592.1133689114668 636"
 #!   STICKY="true"
 #!   COLOUR="0.59607843137254901,0.91764705882352937,0.72549019607843135,1"
-#!   CONTENTS="72 82 62 67 81 71 66 "
+#!   CONTENTS="82 91 62 84 67 92 81 66 "
+#! >
+#! </BOOKMARK>
+#! <BOOKMARK
+#!   IDENTIFIER="102"
+#!   NAME="Building PC"
+#!   DESCRIPTION=""
+#!   TOP_LEFT="4716.9874998749974 305.55861114166686"
+#!   ORDER="500000000000080"
+#!   PALETTE_COLOR="Color4"
+#!   BOTTOM_RIGHT="7369.4814822222279 -469.14049387407482"
+#!   BOUNDING_RECT="4716.9874998749974 305.55861114166686 2652.4939823472305 774.69910501574168"
+#!   STICKY="true"
+#!   COLOUR="0.85098039215686272,0.92941176470588238,0.60392156862745094,1"
+#!   CONTENTS="108 101 96 99 100 93 "
 #! >
 #! </BOOKMARK>
 #! </BOOKMARKS>
@@ -2422,8 +2481,8 @@
 #!   IDENTIFIER="24"
 #!   TYPE="Clipper"
 #!   VERSION="13"
-#!   POSITION="1559.036339153382 806.5"
-#!   BOUNDING_RECT="1559.036339153382 806.5 497.00106825772946 71"
+#!   POSITION="1462.5441461612766 841.58807017894742"
+#!   BOUNDING_RECT="1462.5441461612766 841.58807017894742 497.00106825772946 71"
 #!   ORDER="500000000000012"
 #!   PARMS_EDITED="true"
 #!   ENABLED="true"
@@ -2495,8 +2554,8 @@
 #!   IDENTIFIER="28"
 #!   TYPE="PointCloudStatisticsCalculator"
 #!   VERSION="1"
-#!   POSITION="2474.5 716.5"
-#!   BOUNDING_RECT="2474.5 716.5 431 71"
+#!   POSITION="2378.0078070078944 751.58807017894742"
+#!   BOUNDING_RECT="2378.0078070078944 751.58807017894742 431 71"
 #!   ORDER="500000000000018"
 #!   PARMS_EDITED="true"
 #!   ENABLED="true"
@@ -2548,8 +2607,8 @@
 #!   IDENTIFIER="27"
 #!   TYPE="GeometryReplacer"
 #!   VERSION="10"
-#!   POSITION="3298 716.5"
-#!   BOUNDING_RECT="3298 716.5 454 71"
+#!   POSITION="3201.5078070078944 751.58807017894742"
+#!   BOUNDING_RECT="3201.5078070078944 751.58807017894742 454 71"
 #!   ORDER="500000000000019"
 #!   PARMS_EDITED="true"
 #!   ENABLED="true"
@@ -3009,8 +3068,8 @@
 #!   IDENTIFIER="62"
 #!   TYPE="AttributeRenamer"
 #!   VERSION="4"
-#!   POSITION="4971.6558332249988 825.2098764814815"
-#!   BOUNDING_RECT="4971.6558332249988 825.2098764814815 430 71"
+#!   POSITION="4804.9874998749974 869.06996420516577"
+#!   BOUNDING_RECT="4804.9874998749974 869.06996420516577 430 71"
 #!   ORDER="500000000000044"
 #!   PARMS_EDITED="true"
 #!   ENABLED="true"
@@ -3077,8 +3136,8 @@
 #!   IDENTIFIER="66"
 #!   TYPE="FeatureMerger"
 #!   VERSION="18"
-#!   POSITION="5687.5764505175912 875.57895054259257"
-#!   BOUNDING_RECT="5687.5764505175912 875.57895054259257 483 71"
+#!   POSITION="5520.9081171675898 919.43903826627684"
+#!   BOUNDING_RECT="5520.9081171675898 919.43903826627684 483 71"
 #!   ORDER="500000000000045"
 #!   PARMS_EDITED="true"
 #!   ENABLED="true"
@@ -3323,8 +3382,8 @@
 #!   IDENTIFIER="81"
 #!   TYPE="AttributeCreator"
 #!   VERSION="9"
-#!   POSITION="6350.5461110166671 875.57895054259257"
-#!   BOUNDING_RECT="6350.5461110166671 875.57895054259257 454 71"
+#!   POSITION="6183.8777776666657 919.43903826627684"
+#!   BOUNDING_RECT="6183.8777776666657 919.43903826627684 454 71"
 #!   ORDER="500000000000060"
 #!   PARMS_EDITED="true"
 #!   ENABLED="true"
@@ -3351,7 +3410,7 @@
 #!     <XFORM_ATTR ATTR_NAME="z_med_bottom" IS_USER_CREATED="false" FEAT_INDEX="0" />
 #!     <XFORM_PARM PARM_NAME="ATTRIBUTE_GRP" PARM_VALUE=""/>
 #!     <XFORM_PARM PARM_NAME="ATTRIBUTE_HANDLING" PARM_VALUE=""/>
-#!     <XFORM_PARM PARM_NAME="ATTR_TABLE" PARM_VALUE="&quot;&quot; diff_top_bot SET_TO &lt;at&gt;sub&lt;openparen&gt;&lt;at&gt;Value&lt;openparen&gt;z_med_top&lt;closeparen&gt;&lt;comma&gt;&lt;space&gt;&lt;at&gt;Value&lt;openparen&gt;z_med_bottom&lt;closeparen&gt;&lt;closeparen&gt;&lt;space&gt;"/>
+#!     <XFORM_PARM PARM_NAME="ATTR_TABLE" PARM_VALUE="&quot;&quot; diff_top_bot SET_TO &lt;at&gt;double&lt;openparen&gt;&lt;at&gt;sub&lt;openparen&gt;&lt;at&gt;double&lt;openparen&gt;&lt;at&gt;Value&lt;openparen&gt;z_med_top&lt;closeparen&gt;&lt;closeparen&gt;&lt;comma&gt;&lt;space&gt;&lt;at&gt;double&lt;openparen&gt;&lt;at&gt;Value&lt;openparen&gt;z_med_bottom&lt;closeparen&gt;&lt;closeparen&gt;&lt;closeparen&gt;&lt;space&gt;&lt;closeparen&gt;"/>
 #!     <XFORM_PARM PARM_NAME="MULTI_FEATURE_MODE" PARM_VALUE="NO"/>
 #!     <XFORM_PARM PARM_NAME="NULL_ATTR_MODE_DISPLAY" PARM_VALUE="No Substitution"/>
 #!     <XFORM_PARM PARM_NAME="NULL_ATTR_VALUE" PARM_VALUE="&lt;Unused&gt;"/>
@@ -3410,6 +3469,375 @@
 #!     <XFORM_PARM PARM_NAME="LIST_NAME" PARM_VALUE="&lt;Unused&gt;"/>
 #!     <XFORM_PARM PARM_NAME="TRANSFORMER_GROUP" PARM_VALUE=""/>
 #!     <XFORM_PARM PARM_NAME="XFORMER_NAME" PARM_VALUE="BoundingBoxAccumulator"/>
+#! </TRANSFORMER>
+#! <TRANSFORMER
+#!   IDENTIFIER="84"
+#!   TYPE="AttributeRangeFilter"
+#!   VERSION="0"
+#!   POSITION="6238.8741171362299 659.01976740690145"
+#!   BOUNDING_RECT="6238.8741171362299 659.01976740690145 454 71"
+#!   ORDER="500000000000073"
+#!   PARMS_EDITED="true"
+#!   ENABLED="true"
+#!   LAST_PARM_EDIT="20632"
+#! >
+#!     <OUTPUT_FEAT NAME="1.0 .. 500"/>
+#!     <FEAT_COLLAPSED COLLAPSED="0"/>
+#!     <XFORM_ATTR ATTR_NAME="diff_top_bot" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="z_med_top" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="gid" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="identificatie" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="aanduidingrecordinactief" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="aanduidingrecordcorrectie" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="officieel" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="inonderzoek" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="documentnummer" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="documentdatum" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="bouwjaar" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="begindatumtijdvakgeldigheid" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="einddatumtijdvakgeldigheid" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="gemeentecode" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="fme_basename" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="_clipped" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="z_med_bottom" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <OUTPUT_FEAT NAME="&lt;UNFILTERED&gt;"/>
+#!     <FEAT_COLLAPSED COLLAPSED="1"/>
+#!     <XFORM_ATTR ATTR_NAME="diff_top_bot" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <XFORM_ATTR ATTR_NAME="z_med_top" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <XFORM_ATTR ATTR_NAME="gid" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <XFORM_ATTR ATTR_NAME="identificatie" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <XFORM_ATTR ATTR_NAME="aanduidingrecordinactief" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <XFORM_ATTR ATTR_NAME="aanduidingrecordcorrectie" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <XFORM_ATTR ATTR_NAME="officieel" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <XFORM_ATTR ATTR_NAME="inonderzoek" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <XFORM_ATTR ATTR_NAME="documentnummer" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <XFORM_ATTR ATTR_NAME="documentdatum" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <XFORM_ATTR ATTR_NAME="bouwjaar" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <XFORM_ATTR ATTR_NAME="begindatumtijdvakgeldigheid" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <XFORM_ATTR ATTR_NAME="einddatumtijdvakgeldigheid" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <XFORM_ATTR ATTR_NAME="gemeentecode" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <XFORM_ATTR ATTR_NAME="fme_basename" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <XFORM_ATTR ATTR_NAME="_clipped" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <XFORM_ATTR ATTR_NAME="z_med_bottom" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <XFORM_PARM PARM_NAME="IN_ATTR" PARM_VALUE="diff_top_bot"/>
+#!     <XFORM_PARM PARM_NAME="LUT" PARM_VALUE="1.0,500,1.0&lt;space&gt;..&lt;space&gt;500"/>
+#!     <XFORM_PARM PARM_NAME="PARAMETERS_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="RANGEMAP_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="TRANSFORMER_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="XFORMER_NAME" PARM_VALUE="AttributeRangeFilter"/>
+#! </TRANSFORMER>
+#! <TRANSFORMER
+#!   IDENTIFIER="93"
+#!   TYPE="VertexExtractor"
+#!   VERSION="4"
+#!   POSITION="4766.9874998749974 121.99602177958087"
+#!   BOUNDING_RECT="4766.9874998749974 121.99602177958087 430 71"
+#!   ORDER="500000000000075"
+#!   PARMS_EDITED="true"
+#!   ENABLED="true"
+#!   LAST_PARM_EDIT="20632"
+#! >
+#!     <OUTPUT_FEAT NAME="Point"/>
+#!     <FEAT_COLLAPSED COLLAPSED="0"/>
+#!     <XFORM_ATTR ATTR_NAME="_part_number" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="_feature_number" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="_vertex_number" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="_x" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="_y" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="_z" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="diff_top_bot" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="z_med_top" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="gid" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="identificatie" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="aanduidingrecordinactief" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="aanduidingrecordcorrectie" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="officieel" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="inonderzoek" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="documentnummer" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="documentdatum" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="bouwjaar" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="begindatumtijdvakgeldigheid" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="einddatumtijdvakgeldigheid" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="gemeentecode" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="fme_basename" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="_clipped" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="z_med_bottom" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_PARM PARM_NAME="DEFAULT_Z_VALUE" PARM_VALUE="@Value(z_med_bottom)"/>
+#!     <XFORM_PARM PARM_NAME="TRANSFORMER_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="XFORMER_NAME" PARM_VALUE="VertexExtractor"/>
+#!     <XFORM_PARM PARM_NAME="__COMPOUND_PARAMETERS" PARM_VALUE=""/>
+#! </TRANSFORMER>
+#! <TRANSFORMER
+#!   IDENTIFIER="96"
+#!   TYPE="VertexExtractor"
+#!   VERSION="4"
+#!   POSITION="4766.9874998749974 -120.37157408611131"
+#!   BOUNDING_RECT="4766.9874998749974 -120.37157408611131 430 71"
+#!   ORDER="500000000000077"
+#!   PARMS_EDITED="true"
+#!   ENABLED="true"
+#!   LAST_PARM_EDIT="20632"
+#! >
+#!     <OUTPUT_FEAT NAME="Point"/>
+#!     <FEAT_COLLAPSED COLLAPSED="0"/>
+#!     <XFORM_ATTR ATTR_NAME="_part_number" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="_feature_number" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="_vertex_number" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="_x" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="_y" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="_z" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="diff_top_bot" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="z_med_top" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="gid" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="identificatie" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="aanduidingrecordinactief" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="aanduidingrecordcorrectie" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="officieel" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="inonderzoek" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="documentnummer" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="documentdatum" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="bouwjaar" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="begindatumtijdvakgeldigheid" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="einddatumtijdvakgeldigheid" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="gemeentecode" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="fme_basename" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="_clipped" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="z_med_bottom" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_PARM PARM_NAME="DEFAULT_Z_VALUE" PARM_VALUE="@Value(z_med_top)"/>
+#!     <XFORM_PARM PARM_NAME="TRANSFORMER_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="XFORMER_NAME" PARM_VALUE="VertexExtractor_2"/>
+#!     <XFORM_PARM PARM_NAME="__COMPOUND_PARAMETERS" PARM_VALUE=""/>
+#! </TRANSFORMER>
+#! <TRANSFORMER
+#!   IDENTIFIER="99"
+#!   TYPE="PointCloudCombiner"
+#!   VERSION="6"
+#!   POSITION="5520.9081171675898 -80.247716057407587"
+#!   BOUNDING_RECT="5520.9081171675898 -80.247716057407587 454 71"
+#!   ORDER="500000000000079"
+#!   PARMS_EDITED="true"
+#!   ENABLED="true"
+#!   LAST_PARM_EDIT="20632"
+#! >
+#!     <OUTPUT_FEAT NAME="OUTPUT"/>
+#!     <FEAT_COLLAPSED COLLAPSED="0"/>
+#!     <XFORM_ATTR ATTR_NAME="_part_number" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="_feature_number" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="_vertex_number" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="_x" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="_y" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="_z" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="diff_top_bot" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="z_med_top" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="gid" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="identificatie" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="aanduidingrecordinactief" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="aanduidingrecordcorrectie" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="officieel" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="inonderzoek" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="documentnummer" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="documentdatum" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="bouwjaar" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="begindatumtijdvakgeldigheid" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="einddatumtijdvakgeldigheid" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="gemeentecode" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="fme_basename" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="_clipped" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="z_med_bottom" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <OUTPUT_FEAT NAME="&lt;REJECTED&gt;"/>
+#!     <FEAT_COLLAPSED COLLAPSED="1"/>
+#!     <XFORM_ATTR ATTR_NAME="_part_number" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <XFORM_ATTR ATTR_NAME="_feature_number" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <XFORM_ATTR ATTR_NAME="_vertex_number" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <XFORM_ATTR ATTR_NAME="_x" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <XFORM_ATTR ATTR_NAME="_y" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <XFORM_ATTR ATTR_NAME="_z" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <XFORM_ATTR ATTR_NAME="diff_top_bot" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <XFORM_ATTR ATTR_NAME="z_med_top" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <XFORM_ATTR ATTR_NAME="gid" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <XFORM_ATTR ATTR_NAME="identificatie" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <XFORM_ATTR ATTR_NAME="aanduidingrecordinactief" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <XFORM_ATTR ATTR_NAME="aanduidingrecordcorrectie" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <XFORM_ATTR ATTR_NAME="officieel" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <XFORM_ATTR ATTR_NAME="inonderzoek" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <XFORM_ATTR ATTR_NAME="documentnummer" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <XFORM_ATTR ATTR_NAME="documentdatum" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <XFORM_ATTR ATTR_NAME="bouwjaar" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <XFORM_ATTR ATTR_NAME="begindatumtijdvakgeldigheid" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <XFORM_ATTR ATTR_NAME="einddatumtijdvakgeldigheid" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <XFORM_ATTR ATTR_NAME="gemeentecode" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <XFORM_ATTR ATTR_NAME="fme_basename" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <XFORM_ATTR ATTR_NAME="_clipped" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <XFORM_ATTR ATTR_NAME="z_med_bottom" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <XFORM_ATTR ATTR_NAME="fme_rejection_code" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <XFORM_ATTR ATTR_NAME="fme_rejection_message" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <XFORM_PARM PARM_NAME="ACCUM_ATTRS_NAME" PARM_VALUE="Yes"/>
+#!     <XFORM_PARM PARM_NAME="ATTRIBUTES_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="ATTRS_TO_PRESERVE" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="ATTRS_TO_PRESERVE_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="COUNT_ATTR" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="EXTRACT_RASTER_NODATA_NAME" PARM_VALUE="No"/>
+#!     <XFORM_PARM PARM_NAME="GROUP_BY" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="GROUP_BY_MODE" PARM_VALUE="No"/>
+#!     <XFORM_PARM PARM_NAME="MEASURES_TO_PRESERVE" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="MEASURES_TO_PRESERVE_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="RASTER_PARAMETERS_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="SPACING" PARM_VALUE="1.0"/>
+#!     <XFORM_PARM PARM_NAME="TRANSFORMER_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="VECTOR_PARAMETERS_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="XFORMER_NAME" PARM_VALUE="PointCloudCombiner"/>
+#! </TRANSFORMER>
+#! <TRANSFORMER
+#!   IDENTIFIER="103"
+#!   TYPE="Generalizer"
+#!   VERSION="4"
+#!   POSITION="7404.3950316046366 557.16689702634585"
+#!   BOUNDING_RECT="7404.3950316046366 557.16689702634585 454 71"
+#!   ORDER="500000000000081"
+#!   PARMS_EDITED="true"
+#!   ENABLED="false"
+#!   LAST_PARM_EDIT="20632"
+#! >
+#!     <OUTPUT_FEAT NAME="OUTPUT"/>
+#!     <FEAT_COLLAPSED COLLAPSED="0"/>
+#!     <XFORM_ATTR ATTR_NAME="diff_top_bot" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="z_med_top" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="gid" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="identificatie" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="aanduidingrecordinactief" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="aanduidingrecordcorrectie" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="officieel" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="inonderzoek" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="documentnummer" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="documentdatum" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="bouwjaar" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="begindatumtijdvakgeldigheid" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="einddatumtijdvakgeldigheid" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="gemeentecode" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="fme_basename" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="_clipped" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="z_med_bottom" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <OUTPUT_FEAT NAME="&lt;REJECTED&gt;"/>
+#!     <FEAT_COLLAPSED COLLAPSED="1"/>
+#!     <XFORM_ATTR ATTR_NAME="diff_top_bot" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <XFORM_ATTR ATTR_NAME="z_med_top" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <XFORM_ATTR ATTR_NAME="gid" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <XFORM_ATTR ATTR_NAME="identificatie" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <XFORM_ATTR ATTR_NAME="aanduidingrecordinactief" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <XFORM_ATTR ATTR_NAME="aanduidingrecordcorrectie" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <XFORM_ATTR ATTR_NAME="officieel" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <XFORM_ATTR ATTR_NAME="inonderzoek" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <XFORM_ATTR ATTR_NAME="documentnummer" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <XFORM_ATTR ATTR_NAME="documentdatum" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <XFORM_ATTR ATTR_NAME="bouwjaar" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <XFORM_ATTR ATTR_NAME="begindatumtijdvakgeldigheid" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <XFORM_ATTR ATTR_NAME="einddatumtijdvakgeldigheid" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <XFORM_ATTR ATTR_NAME="gemeentecode" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <XFORM_ATTR ATTR_NAME="fme_basename" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <XFORM_ATTR ATTR_NAME="_clipped" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <XFORM_ATTR ATTR_NAME="z_med_bottom" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <XFORM_ATTR ATTR_NAME="fme_rejection_code" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <XFORM_PARM PARM_NAME="ALG_TEXT" PARM_VALUE="Douglas (Generalize)"/>
+#!     <XFORM_PARM PARM_NAME="ANGLE" PARM_VALUE="&lt;Unused&gt;"/>
+#!     <XFORM_PARM PARM_NAME="CLEANING_TOLERANCE" PARM_VALUE="&lt;Unused&gt;"/>
+#!     <XFORM_PARM PARM_NAME="DEGREE" PARM_VALUE="&lt;Unused&gt;"/>
+#!     <XFORM_PARM PARM_NAME="DEV_GRP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="DISPLACEMENT" PARM_VALUE="&lt;Unused&gt;"/>
+#!     <XFORM_PARM PARM_NAME="GROUP_BY" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="GROUP_BY_MODE" PARM_VALUE="No"/>
+#!     <XFORM_PARM PARM_NAME="McM_GRP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="NUMNEIGHBORS" PARM_VALUE="&lt;Unused&gt;"/>
+#!     <XFORM_PARM PARM_NAME="NUMWEDGES" PARM_VALUE="&lt;Unused&gt;"/>
+#!     <XFORM_PARM PARM_NAME="NURB_GRP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="PARAMETERS_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="PRESERVE" PARM_VALUE="No"/>
+#!     <XFORM_PARM PARM_NAME="PRESERVE_PATHS" PARM_VALUE="No"/>
+#!     <XFORM_PARM PARM_NAME="SEGMENT_LENGTH" PARM_VALUE="&lt;Unused&gt;"/>
+#!     <XFORM_PARM PARM_NAME="SHARED_GRP" PARM_VALUE="FME_DISCLOSURE_OPEN"/>
+#!     <XFORM_PARM PARM_NAME="TOLERANCE" PARM_VALUE="1"/>
+#!     <XFORM_PARM PARM_NAME="TRANSFORMER_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="WEIGHTINGPOWER" PARM_VALUE="&lt;Unused&gt;"/>
+#!     <XFORM_PARM PARM_NAME="XFORMER_NAME" PARM_VALUE="Generalizer"/>
+#! </TRANSFORMER>
+#! <TRANSFORMER
+#!   IDENTIFIER="105"
+#!   TYPE="VertexExtractor"
+#!   VERSION="4"
+#!   POSITION="8079.8412185144425 744.30362400684737"
+#!   BOUNDING_RECT="8079.8412185144425 744.30362400684737 430 71"
+#!   ORDER="500000000000075"
+#!   PARMS_EDITED="true"
+#!   ENABLED="false"
+#!   LAST_PARM_EDIT="20632"
+#! >
+#!     <OUTPUT_FEAT NAME="Point"/>
+#!     <FEAT_COLLAPSED COLLAPSED="0"/>
+#!     <XFORM_ATTR ATTR_NAME="_part_number" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="_feature_number" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="_vertex_number" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="_x" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="_y" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="_z" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="diff_top_bot" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="z_med_top" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="gid" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="identificatie" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="aanduidingrecordinactief" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="aanduidingrecordcorrectie" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="officieel" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="inonderzoek" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="documentnummer" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="documentdatum" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="bouwjaar" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="begindatumtijdvakgeldigheid" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="einddatumtijdvakgeldigheid" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="gemeentecode" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="fme_basename" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="_clipped" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="z_med_bottom" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_PARM PARM_NAME="DEFAULT_Z_VALUE" PARM_VALUE="@Value(z_med_bottom)"/>
+#!     <XFORM_PARM PARM_NAME="TRANSFORMER_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="XFORMER_NAME" PARM_VALUE="VertexExtractor_3"/>
+#!     <XFORM_PARM PARM_NAME="__COMPOUND_PARAMETERS" PARM_VALUE=""/>
+#! </TRANSFORMER>
+#! <TRANSFORMER
+#!   IDENTIFIER="108"
+#!   TYPE="TINGenerator"
+#!   VERSION="7"
+#!   POSITION="6145.8777776666657 54.812962944444166"
+#!   BOUNDING_RECT="6145.8777776666657 54.812962944444166 430 71"
+#!   ORDER="500000000000082"
+#!   PARMS_EDITED="true"
+#!   ENABLED="false"
+#!   LAST_PARM_EDIT="20632"
+#! >
+#!     <OUTPUT_FEAT NAME="TIN_EDGES"/>
+#!     <FEAT_COLLAPSED COLLAPSED="0"/>
+#!     <XFORM_ATTR ATTR_NAME="gid" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="_vertex1_id" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="_vertex2_id" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <OUTPUT_FEAT NAME="TRIANGLES"/>
+#!     <FEAT_COLLAPSED COLLAPSED="1"/>
+#!     <XFORM_ATTR ATTR_NAME="gid" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <XFORM_ATTR ATTR_NAME="_vertex1_id" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <XFORM_ATTR ATTR_NAME="_vertex2_id" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <XFORM_ATTR ATTR_NAME="_vertex3_id" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <XFORM_ATTR ATTR_NAME="_slope" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <XFORM_ATTR ATTR_NAME="_aspect" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <XFORM_ATTR ATTR_NAME="_percentage_slope" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <OUTPUT_FEAT NAME="TIN_SURFACE"/>
+#!     <FEAT_COLLAPSED COLLAPSED="2"/>
+#!     <XFORM_ATTR ATTR_NAME="gid" IS_USER_CREATED="false" FEAT_INDEX="2" />
+#!     <OUTPUT_FEAT NAME="VERTEX_POINTS"/>
+#!     <FEAT_COLLAPSED COLLAPSED="3"/>
+#!     <XFORM_ATTR ATTR_NAME="gid" IS_USER_CREATED="false" FEAT_INDEX="3" />
+#!     <XFORM_ATTR ATTR_NAME="_vertex_id" IS_USER_CREATED="false" FEAT_INDEX="3" />
+#!     <XFORM_PARM PARM_NAME="GROUP_BY" PARM_VALUE="gid"/>
+#!     <XFORM_PARM PARM_NAME="GROUP_BY_MODE" PARM_VALUE="No"/>
+#!     <XFORM_PARM PARM_NAME="PARAMETERS_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="TOLERANCE" PARM_VALUE="0"/>
+#!     <XFORM_PARM PARM_NAME="TRANSFORMER_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="XFORMER_NAME" PARM_VALUE="TINGenerator"/>
 #! </TRANSFORMER>
 #! </TRANSFORMERS>
 #! <FEAT_LINKS>
@@ -3849,11 +4277,71 @@
 #!   EXTRA_POINTS=""
 #! />
 #! <FEAT_LINK
-#!   IDENTIFIER="72"
+#!   IDENTIFIER="91"
 #!   SOURCE_NODE="81"
-#!   TARGET_NODE="71"
+#!   TARGET_NODE="84"
 #!   SOURCE_PORT_DESC="fo 0 OUTPUT"
-#!   TARGET_PORT_DESC="-1"
+#!   TARGET_PORT_DESC="fi 0 "
+#!   ENABLED="true"
+#!   EXECUTION_IDX="0"
+#!   HIDDEN="false"
+#!   COLOUR="0,0,0,1"
+#!   PEN_WIDTH="4"
+#!   PEN_STYLE="1"
+#!   LINK_STYLE_NAME="&lt;Default&gt;"
+#!   EXTRA_POINTS=""
+#! />
+#! <FEAT_LINK
+#!   IDENTIFIER="100"
+#!   SOURCE_NODE="93"
+#!   TARGET_NODE="99"
+#!   SOURCE_PORT_DESC="fo 0 Point"
+#!   TARGET_PORT_DESC="fi 0 "
+#!   ENABLED="true"
+#!   EXECUTION_IDX="0"
+#!   HIDDEN="false"
+#!   COLOUR="0,0,0,1"
+#!   PEN_WIDTH="4"
+#!   PEN_STYLE="1"
+#!   LINK_STYLE_NAME="&lt;Default&gt;"
+#!   EXTRA_POINTS=""
+#! />
+#! <FEAT_LINK
+#!   IDENTIFIER="101"
+#!   SOURCE_NODE="96"
+#!   TARGET_NODE="99"
+#!   SOURCE_PORT_DESC="fo 0 Point"
+#!   TARGET_PORT_DESC="fi 0 "
+#!   ENABLED="true"
+#!   EXECUTION_IDX="0"
+#!   HIDDEN="false"
+#!   COLOUR="0,0,0,1"
+#!   PEN_WIDTH="4"
+#!   PEN_STYLE="1"
+#!   LINK_STYLE_NAME="&lt;Default&gt;"
+#!   EXTRA_POINTS=""
+#! />
+#! <FEAT_LINK
+#!   IDENTIFIER="109"
+#!   SOURCE_NODE="99"
+#!   TARGET_NODE="108"
+#!   SOURCE_PORT_DESC="fo 0 OUTPUT"
+#!   TARGET_PORT_DESC="fi 0 POINTS&lt;solidus&gt;LINES"
+#!   ENABLED="true"
+#!   EXECUTION_IDX="0"
+#!   HIDDEN="false"
+#!   COLOUR="0,0,0,1"
+#!   PEN_WIDTH="4"
+#!   PEN_STYLE="1"
+#!   LINK_STYLE_NAME="&lt;Default&gt;"
+#!   EXTRA_POINTS=""
+#! />
+#! <FEAT_LINK
+#!   IDENTIFIER="107"
+#!   SOURCE_NODE="103"
+#!   TARGET_NODE="105"
+#!   SOURCE_PORT_DESC="fo 0 OUTPUT"
+#!   TARGET_PORT_DESC="fi 0 Input"
 #!   ENABLED="true"
 #!   EXECUTION_IDX="0"
 #!   HIDDEN="false"
@@ -3901,6 +4389,81 @@
 #!   TARGET_PORT_DESC="fi 0 "
 #!   ENABLED="true"
 #!   EXECUTION_IDX="0"
+#!   HIDDEN="false"
+#!   COLOUR="0,0,0,1"
+#!   PEN_WIDTH="4"
+#!   PEN_STYLE="1"
+#!   LINK_STYLE_NAME="&lt;Default&gt;"
+#!   EXTRA_POINTS=""
+#! />
+#! <FEAT_LINK
+#!   IDENTIFIER="72"
+#!   SOURCE_NODE="84"
+#!   TARGET_NODE="71"
+#!   SOURCE_PORT_DESC="fo 0 1.0&lt;space&gt;..&lt;space&gt;500"
+#!   TARGET_PORT_DESC="-1"
+#!   ENABLED="true"
+#!   EXECUTION_IDX="0"
+#!   HIDDEN="false"
+#!   COLOUR="0,0,0,1"
+#!   PEN_WIDTH="4"
+#!   PEN_STYLE="1"
+#!   LINK_STYLE_NAME="&lt;Default&gt;"
+#!   EXTRA_POINTS=""
+#! />
+#! <FEAT_LINK
+#!   IDENTIFIER="94"
+#!   SOURCE_NODE="84"
+#!   TARGET_NODE="93"
+#!   SOURCE_PORT_DESC="fo 0 1.0&lt;space&gt;..&lt;space&gt;500"
+#!   TARGET_PORT_DESC="fi 0 Input"
+#!   ENABLED="true"
+#!   EXECUTION_IDX="1"
+#!   HIDDEN="false"
+#!   COLOUR="0,0,0,1"
+#!   PEN_WIDTH="4"
+#!   PEN_STYLE="1"
+#!   LINK_STYLE_NAME="&lt;Default&gt;"
+#!   EXTRA_POINTS=""
+#! />
+#! <FEAT_LINK
+#!   IDENTIFIER="97"
+#!   SOURCE_NODE="84"
+#!   TARGET_NODE="96"
+#!   SOURCE_PORT_DESC="fo 0 1.0&lt;space&gt;..&lt;space&gt;500"
+#!   TARGET_PORT_DESC="fi 0 Input"
+#!   ENABLED="true"
+#!   EXECUTION_IDX="2"
+#!   HIDDEN="false"
+#!   COLOUR="0,0,0,1"
+#!   PEN_WIDTH="4"
+#!   PEN_STYLE="1"
+#!   LINK_STYLE_NAME="&lt;Default&gt;"
+#!   EXTRA_POINTS=""
+#! />
+#! <FEAT_LINK
+#!   IDENTIFIER="104"
+#!   SOURCE_NODE="84"
+#!   TARGET_NODE="103"
+#!   SOURCE_PORT_DESC="fo 0 1.0&lt;space&gt;..&lt;space&gt;500"
+#!   TARGET_PORT_DESC="fi 0 "
+#!   ENABLED="true"
+#!   EXECUTION_IDX="3"
+#!   HIDDEN="false"
+#!   COLOUR="0,0,0,1"
+#!   PEN_WIDTH="4"
+#!   PEN_STYLE="1"
+#!   LINK_STYLE_NAME="&lt;Default&gt;"
+#!   EXTRA_POINTS=""
+#! />
+#! <FEAT_LINK
+#!   IDENTIFIER="106"
+#!   SOURCE_NODE="84"
+#!   TARGET_NODE="108"
+#!   SOURCE_PORT_DESC="fo 0 1.0&lt;space&gt;..&lt;space&gt;500"
+#!   TARGET_PORT_DESC="fi 1 BREAKLINES"
+#!   ENABLED="true"
+#!   EXECUTION_IDX="4"
 #!   HIDDEN="false"
 #!   COLOUR="0,0,0,1"
 #!   PEN_WIDTH="4"
@@ -3997,81 +4560,81 @@
 #!   TARGET_PORT_DESC="2"
 #! />
 #! <ATTR_LINK
-#!   IDENTIFIER="196680"
-#!   SOURCE_NODE="81"
-#!   TARGET_NODE="71"
-#!   SOURCE_PORT_DESC="ao 0 9 OUTPUT"
-#!   TARGET_PORT_DESC="10"
-#! />
-#! <ATTR_LINK
-#!   IDENTIFIER="720968"
-#!   SOURCE_NODE="81"
-#!   TARGET_NODE="71"
-#!   SOURCE_PORT_DESC="ao 0 12 OUTPUT"
-#!   TARGET_PORT_DESC="13"
-#! />
-#! <ATTR_LINK
-#!   IDENTIFIER="327752"
-#!   SOURCE_NODE="81"
-#!   TARGET_NODE="71"
-#!   SOURCE_PORT_DESC="ao 0 13 OUTPUT"
-#!   TARGET_PORT_DESC="14"
-#! />
-#! <ATTR_LINK
-#!   IDENTIFIER="65608"
-#!   SOURCE_NODE="81"
-#!   TARGET_NODE="71"
-#!   SOURCE_PORT_DESC="ao 0 0 OUTPUT"
-#!   TARGET_PORT_DESC="1"
-#! />
-#! <ATTR_LINK
-#!   IDENTIFIER="262216"
-#!   SOURCE_NODE="81"
-#!   TARGET_NODE="71"
-#!   SOURCE_PORT_DESC="ao 0 5 OUTPUT"
-#!   TARGET_PORT_DESC="6"
-#! />
-#! <ATTR_LINK
 #!   IDENTIFIER="524360"
-#!   SOURCE_NODE="81"
+#!   SOURCE_NODE="84"
 #!   TARGET_NODE="71"
-#!   SOURCE_PORT_DESC="ao 0 7 OUTPUT"
+#!   SOURCE_PORT_DESC="ao 0 7 1.0&lt;space&gt;..&lt;space&gt;500"
 #!   TARGET_PORT_DESC="8"
 #! />
 #! <ATTR_LINK
 #!   IDENTIFIER="589896"
-#!   SOURCE_NODE="81"
+#!   SOURCE_NODE="84"
 #!   TARGET_NODE="71"
-#!   SOURCE_PORT_DESC="ao 0 16 OUTPUT"
-#!   TARGET_PORT_DESC="3"
-#! />
-#! <ATTR_LINK
-#!   IDENTIFIER="393288"
-#!   SOURCE_NODE="81"
-#!   TARGET_NODE="71"
-#!   SOURCE_PORT_DESC="ao 0 8 OUTPUT"
-#!   TARGET_PORT_DESC="9"
-#! />
-#! <ATTR_LINK
-#!   IDENTIFIER="655432"
-#!   SOURCE_NODE="81"
-#!   TARGET_NODE="71"
-#!   SOURCE_PORT_DESC="ao 0 4 OUTPUT"
-#!   TARGET_PORT_DESC="5"
-#! />
-#! <ATTR_LINK
-#!   IDENTIFIER="131144"
-#!   SOURCE_NODE="81"
-#!   TARGET_NODE="71"
-#!   SOURCE_PORT_DESC="ao 0 3 OUTPUT"
+#!   SOURCE_PORT_DESC="ao 0 3 1.0&lt;space&gt;..&lt;space&gt;500"
 #!   TARGET_PORT_DESC="4"
 #! />
 #! <ATTR_LINK
-#!   IDENTIFIER="458824"
-#!   SOURCE_NODE="81"
+#!   IDENTIFIER="393288"
+#!   SOURCE_NODE="84"
 #!   TARGET_NODE="71"
-#!   SOURCE_PORT_DESC="ao 0 11 OUTPUT"
+#!   SOURCE_PORT_DESC="ao 0 13 1.0&lt;space&gt;..&lt;space&gt;500"
+#!   TARGET_PORT_DESC="14"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="720968"
+#!   SOURCE_NODE="84"
+#!   TARGET_NODE="71"
+#!   SOURCE_PORT_DESC="ao 0 8 1.0&lt;space&gt;..&lt;space&gt;500"
+#!   TARGET_PORT_DESC="9"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="327752"
+#!   SOURCE_NODE="84"
+#!   TARGET_NODE="71"
+#!   SOURCE_PORT_DESC="ao 0 9 1.0&lt;space&gt;..&lt;space&gt;500"
+#!   TARGET_PORT_DESC="10"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="196680"
+#!   SOURCE_NODE="84"
+#!   TARGET_NODE="71"
+#!   SOURCE_PORT_DESC="ao 0 12 1.0&lt;space&gt;..&lt;space&gt;500"
+#!   TARGET_PORT_DESC="13"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="458824"
+#!   SOURCE_NODE="84"
+#!   TARGET_NODE="71"
+#!   SOURCE_PORT_DESC="ao 0 0 1.0&lt;space&gt;..&lt;space&gt;500"
+#!   TARGET_PORT_DESC="1"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="65608"
+#!   SOURCE_NODE="84"
+#!   TARGET_NODE="71"
+#!   SOURCE_PORT_DESC="ao 0 11 1.0&lt;space&gt;..&lt;space&gt;500"
 #!   TARGET_PORT_DESC="12"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="131144"
+#!   SOURCE_NODE="84"
+#!   TARGET_NODE="71"
+#!   SOURCE_PORT_DESC="ao 0 4 1.0&lt;space&gt;..&lt;space&gt;500"
+#!   TARGET_PORT_DESC="5"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="655432"
+#!   SOURCE_NODE="84"
+#!   TARGET_NODE="71"
+#!   SOURCE_PORT_DESC="ao 0 16 1.0&lt;space&gt;..&lt;space&gt;500"
+#!   TARGET_PORT_DESC="3"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="262216"
+#!   SOURCE_NODE="84"
+#!   TARGET_NODE="71"
+#!   SOURCE_PORT_DESC="ao 0 5 1.0&lt;space&gt;..&lt;space&gt;500"
+#!   TARGET_PORT_DESC="6"
 #! />
 #! </ATTR_LINKS>
 #! <SUBDOCUMENTS>
@@ -5357,7 +5920,39 @@ FACTORY_DEF * TeeFactory   FACTORY_NAME "GeometryReplacer_2 OUTPUT Splitter"   I
 INCLUDE [if { {ATTRIBUTES} == {ATTRIBUTES} } {                puts "MACRO FeatureMerger_REFERENCE_INFO ATTRIBUTES";             }          elseif { {ATTRIBUTES} == {GEOM_BUILD} && {<Unused>} == {POLYGONS}} {                puts "MACRO FeatureMerger_REFERENCE_INFO GEOM_BUILD_POLYS";             }          elseif { {ATTRIBUTES} == {GEOM_BUILD} && {<Unused>} == {AGGREGATES}} {                puts "MACRO FeatureMerger_REFERENCE_INFO GEOM_BUILD_AGGREGATES";             }          elseif { {ATTRIBUTES} == {GEOM_BUILD} && {<Unused>} == {LINESFROMPOINTS}} {                puts "MACRO FeatureMerger_REFERENCE_INFO GEOM_BUILD_LINES_FROM_POINTS";             }          elseif { {ATTRIBUTES} == {GEOM_AND_ATTRS} && {<Unused>} == {POLYGONS}} {                puts "MACRO FeatureMerger_REFERENCE_INFO GEOM_AND_ATTR_BUILD_POLYS";             }          elseif { {ATTRIBUTES} == {GEOM_AND_ATTRS} && {<Unused>} == {AGGREGATES}} {                puts "MACRO FeatureMerger_REFERENCE_INFO GEOM_AND_ATTR_BUILD_AGGREGATES";             }          elseif { {ATTRIBUTES} == {GEOM_AND_ATTRS} && {<Unused>} == {LINESFROMPOINTS}} {                puts "MACRO FeatureMerger_REFERENCE_INFO GEOM_AND_ATTR_BUILD_LINES_FROM_POINTS";             }          elseif { {ATTRIBUTES} == {GEOM_BUILD} } {                puts "MACRO FeatureMerger_REFERENCE_INFO GEOM_BUILD_AGGREGATES";             }          elseif { {ATTRIBUTES} == {GEOM_AND_ATTRS} } {                puts "MACRO FeatureMerger_REFERENCE_INFO GEOM_AND_ATTR_BUILD_AGGREGATES";             }          else {}; ]
 FACTORY_DEF {*} ReferenceFactory    FACTORY_NAME FeatureMerger    FLUSH_WHEN_GROUPS_CHANGE No    INPUT REFERENCER FEATURE_TYPE rename_top_z_OUTPUT    INPUT REFERENCEE FEATURE_TYPE GeometryReplacer_2_OUTPUT_1_lJDfXDgL5TQ=    REFERENCE_INFO $(FeatureMerger_REFERENCE_INFO)    REFERENCE_TABLE @EvaluateExpression(FDIV,STRING_ENCODED,<at>Value<openparen>gid<closeparen>,FeatureMerger) @EvaluateExpression(FDIV,STRING_ENCODED,<at>Value<openparen>gid<closeparen>,FeatureMerger) AUTO    ATTR_ACCUM_MODE "HANDLE_CONFLICT"    ATTR_CONFLICT_RES "REQUESTOR_IF_CONFLICT"    IGNORE_NULLS "No"    HANDLE_NULL_MISSING_KEYS_LIKE_FME2013 No    LIST_ATTRS_TO_INCLUDE { <Unused> }    LIST_ATTRS_TO_INCLUDE_MODE <Unused>    MERGE_ATTRIBUTES Yes    MANAGE_FME_TYPE Yes    MODE COMPLETE    PROCESS_DUPLICATE_REFERENCEES NO    REFERENCEES_FIRST No    REJECT_INVALID_GEOM YES    CLEANING_TOLERANCE <Unused>    OUTPUT COMPLETE FEATURE_TYPE FeatureMerger_MERGED
 # -------------------------------------------------------------------------
-FACTORY_DEF {*} AttrSetFactory    FACTORY_NAME AttributeCreator    COMMAND_PARM_EVALUATION SINGLE_PASS    INPUT  FEATURE_TYPE FeatureMerger_MERGED    MULTI_FEATURE_MODE NO    NULL_ATTR_MODE NO_OP     ATTRSET_CREATE_DIRECTIVES _PROPAGATE_MISSING_FDIV     ATTR_ACTION { "" "diff_top_bot" "SET_TO" "<at>sub<openparen><at>Value<openparen>z_med_top<closeparen><comma><space><at>Value<openparen>z_med_bottom<closeparen><closeparen><space>" }    OUTPUT OUTPUT FEATURE_TYPE AttributeCreator_OUTPUT
+FACTORY_DEF {*} AttrSetFactory    FACTORY_NAME AttributeCreator    COMMAND_PARM_EVALUATION SINGLE_PASS    INPUT  FEATURE_TYPE FeatureMerger_MERGED    MULTI_FEATURE_MODE NO    NULL_ATTR_MODE NO_OP     ATTRSET_CREATE_DIRECTIVES _PROPAGATE_MISSING_FDIV     ATTR_ACTION { "" "diff_top_bot" "SET_TO" "<at>double<openparen><at>sub<openparen><at>double<openparen><at>Value<openparen>z_med_top<closeparen><closeparen><comma><space><at>double<openparen><at>Value<openparen>z_med_bottom<closeparen><closeparen><closeparen><space><closeparen>" }    OUTPUT OUTPUT FEATURE_TYPE AttributeCreator_OUTPUT
+# -------------------------------------------------------------------------
+Lookup AttributeRangeFilter_LOOKUP_TABLE           1.0:500 1.0<space>..<space>500   :               <UNFILTERED>   ENCODED|RANGE_MAP
+FACTORY_DEF * TeeFactory    FACTORY_NAME AttributeRangeFilter    INPUT  FEATURE_TYPE AttributeCreator_OUTPUT    OUTPUT FEATURE_TYPE *       @FeatureType(AttributeRangeFilter_@Lookup(AttributeRangeFilter_LOOKUP_TABLE,diff_top_bot,RANGE_MAP|ENCODED_ATTR))
+FACTORY_DEF * TeeFactory   FACTORY_NAME "AttributeRangeFilter 1.0 .. 500 Splitter"   INPUT FEATURE_TYPE "AttributeRangeFilter_1.0 .. 500"   OUTPUT FEATURE_TYPE "AttributeRangeFilter_1.0 .. 500_0_vRthw9We7aI="   OUTPUT FEATURE_TYPE "AttributeRangeFilter_1.0 .. 500_1_fl7LwDLxwAU="   OUTPUT FEATURE_TYPE "AttributeRangeFilter_1.0 .. 500_2_esAFcHtDBfo="   OUTPUT FEATURE_TYPE "AttributeRangeFilter_1.0 .. 500_3_aZk07pGbQKo="   OUTPUT FEATURE_TYPE "AttributeRangeFilter_1.0 .. 500_4_y3yZrDY42wQ="
+FACTORY_DEF * TeeFactory   FACTORY_NAME "AttributeRangeFilter <UNFILTERED> Transformer Output Nuker"   INPUT FEATURE_TYPE AttributeRangeFilter_<UNFILTERED>
+# -------------------------------------------------------------------------
+FACTORY_DEF * TeeFactory   FACTORY_NAME "Generalizer (Disabled) Nuker"   INPUT FEATURE_TYPE "AttributeRangeFilter_1.0 .. 500_3_aZk07pGbQKo="
+# -------------------------------------------------------------------------
+FACTORY_DEF * TeeFactory   FACTORY_NAME "VertexExtractor_3 (Disabled) Nuker"   INPUT FEATURE_TYPE Generalizer_OUTPUT
+# -------------------------------------------------------------------------
+FACTORY_DEF * TeeFactory   FACTORY_NAME "VertexExtractor_2 Input Input Collector"   INPUT FEATURE_TYPE "AttributeRangeFilter_1.0 .. 500_2_esAFcHtDBfo="   OUTPUT FEATURE_TYPE VertexExtractor_2_Input
+MACRO VertexExtractor_WORKSPACE_NAME VertexExtractor_2
+MACRO $(VertexExtractor_WORKSPACE_NAME)_XFORMER_NAME VertexExtractor_2
+MACRO $(VertexExtractor_WORKSPACE_NAME)_TRANSFORMER_GROUP 
+MACRO $(VertexExtractor_WORKSPACE_NAME)___COMPOUND_PARAMETERS 
+MACRO $(VertexExtractor_WORKSPACE_NAME)_DEFAULT_Z_VALUE @Value(z_med_top)
+INCLUDE_CUSTOM_TRANSFORMER_VER VertexExtractor:4
+FACTORY_DEF * TeeFactory   FACTORY_NAME "VertexExtractor_2 Point Output Renamer/Nuker"   INPUT FEATURE_TYPE VertexExtractor_2_Point   OUTPUT FEATURE_TYPE VertexExtractor_2_Point
+# -------------------------------------------------------------------------
+FACTORY_DEF * TeeFactory   FACTORY_NAME "VertexExtractor Input Input Collector"   INPUT FEATURE_TYPE "AttributeRangeFilter_1.0 .. 500_1_fl7LwDLxwAU="   OUTPUT FEATURE_TYPE VertexExtractor_Input
+MACRO VertexExtractor_WORKSPACE_NAME VertexExtractor
+MACRO $(VertexExtractor_WORKSPACE_NAME)_XFORMER_NAME VertexExtractor
+MACRO $(VertexExtractor_WORKSPACE_NAME)_TRANSFORMER_GROUP 
+MACRO $(VertexExtractor_WORKSPACE_NAME)___COMPOUND_PARAMETERS 
+MACRO $(VertexExtractor_WORKSPACE_NAME)_DEFAULT_Z_VALUE @Value(z_med_bottom)
+INCLUDE_CUSTOM_TRANSFORMER_VER VertexExtractor:4
+FACTORY_DEF * TeeFactory   FACTORY_NAME "VertexExtractor Point Output Renamer/Nuker"   INPUT FEATURE_TYPE VertexExtractor_Point   OUTPUT FEATURE_TYPE VertexExtractor_Point
+# -------------------------------------------------------------------------
+FACTORY_DEF {*} VectorToPointCloudFactory    FACTORY_NAME PointCloudCombiner___VectorMerger    INPUT  FEATURE_TYPE VertexExtractor_Point    INPUT  FEATURE_TYPE VertexExtractor_2_Point    FLUSH_WHEN_GROUPS_CHANGE No    ACCUMULATE_ATTRIBUTES yes    EXTRACT_RASTER_NODATA no    SPACING "1.0"    MEASURES_TO_PRESERVE    ATTRIBUTES_TO_PRESERVE    REJECT_INVALID_FEATURES yes    OUTPUT COERCED FEATURE_TYPE PointCloudCombiner___MergedVectorFeatures__       @SupplyAttributes(?,fme_basename,PointCloudCombiner)
+FACTORY_DEF {*} PointCloudCombinerFactory    FACTORY_NAME PointCloudCombiner___Combiner    INPUT FEATURE_TYPE PointCloudCombiner___MergedVectorFeatures__    FLUSH_WHEN_GROUPS_CHANGE No    ACCUMULATE_ATTRIBUTES yes    REJECT_INVALID_FEATURES yes    OUTPUT MERGED FEATURE_TYPE PointCloudCombiner_OUTPUT
+# -------------------------------------------------------------------------
+FACTORY_DEF * TeeFactory   FACTORY_NAME "TINGenerator (Disabled) Nuker"   INPUT FEATURE_TYPE PointCloudCombiner_OUTPUT   INPUT FEATURE_TYPE "AttributeRangeFilter_1.0 .. 500_4_y3yZrDY42wQ="
 # -------------------------------------------------------------------------
 FACTORY_DEF * TeeFactory   FACTORY_NAME "PointCloudSpatialThinner Input Input Collector"   INPUT FEATURE_TYPE LAS_LAS_1   OUTPUT FEATURE_TYPE PointCloudSpatialThinner_Input
 MACRO PointCloudSpatialThinner_WORKSPACE_NAME PointCloudSpatialThinner
@@ -5368,7 +5963,7 @@ MACRO $(PointCloudSpatialThinner_WORKSPACE_NAME)_SUB_DOC_NAME PointCloudSpatialT
 MACRO $(PointCloudSpatialThinner_WORKSPACE_NAME)_CellSize @sqrt(5.0)
 DEFAULT_MACRO PointCloudSpatialThinner_WORKSPACE_NAME ""
 INCLUDE [puts {MACRO WB_OLD_CONTEXT_$(PointCloudSpatialThinner_WORKSPACE_NAME) $(WB_CURRENT_CONTEXT)};          puts {MACRO WB_CURRENT_CONTEXT $(PointCloudSpatialThinner_WORKSPACE_NAME)}]
-FACTORY_DEF * TeeFactory   FACTORY_NAME "$(PointCloudSpatialThinner_WORKSPACE_NAME)_Input1617357209 Input Splitter"   INPUT FEATURE_TYPE "$(PointCloudSpatialThinner_WORKSPACE_NAME)_Input"   OUTPUT FEATURE_TYPE "$(PointCloudSpatialThinner_WORKSPACE_NAME)_Input"
+FACTORY_DEF * TeeFactory   FACTORY_NAME "$(PointCloudSpatialThinner_WORKSPACE_NAME)_Input1617361104 Input Splitter"   INPUT FEATURE_TYPE "$(PointCloudSpatialThinner_WORKSPACE_NAME)_Input"   OUTPUT FEATURE_TYPE "$(PointCloudSpatialThinner_WORKSPACE_NAME)_Input"
 # -------------------------------------------------------------------------
 DEFAULT_MACRO $(PointCloudSpatialThinner_WORKSPACE_NAME)_PointCloudExpressionEvaluator_COMPONENT_LIST
 DEFAULT_MACRO $(PointCloudSpatialThinner_WORKSPACE_NAME)_PointCloudExpressionEvaluator_COMPONENT_TYPE_LIST
@@ -5378,12 +5973,12 @@ FACTORY_DEF * PointCloudEvaluationFactory    FACTORY_NAME $(PointCloudSpatialThi
 FACTORY_DEF * TeeFactory   FACTORY_NAME "$(PointCloudSpatialThinner_WORKSPACE_NAME)_PointCloudExpressionEvaluator RESULT Splitter"   INPUT FEATURE_TYPE "$(PointCloudSpatialThinner_WORKSPACE_NAME)_PointCloudExpressionEvaluator_RESULT"   OUTPUT FEATURE_TYPE "$(PointCloudSpatialThinner_WORKSPACE_NAME)_PointCloudExpressionEvaluator_RESULT_0_bLRKd3ws9BM="   OUTPUT FEATURE_TYPE "$(PointCloudSpatialThinner_WORKSPACE_NAME)_PointCloudExpressionEvaluator_RESULT_1_/iIndrC5H7s="
 # -------------------------------------------------------------------------
 FACTORY_DEF {*} PointCloudMergerFactory    FACTORY_NAME $(PointCloudSpatialThinner_WORKSPACE_NAME)_PointCloudMerger    INPUT REQUESTOR FEATURE_TYPE "$(PointCloudSpatialThinner_WORKSPACE_NAME)_PointCloudExpressionEvaluator_RESULT_0_bLRKd3ws9BM="    INPUT SUPPLIER FEATURE_TYPE "$(PointCloudSpatialThinner_WORKSPACE_NAME)_PointCloudExpressionEvaluator_RESULT_1_/iIndrC5H7s="    REFERENCE_TABLE x x y y z z    HANDLE_CONFLICT REQUESTOR_IF_CONFLICT    OUTPUT REFERENCED FEATURE_TYPE "$(PointCloudSpatialThinner_WORKSPACE_NAME)_PointCloudMerger_REFERENCED"
-FACTORY_DEF * TeeFactory   FACTORY_NAME "$(PointCloudSpatialThinner_WORKSPACE_NAME)_Output1617357209 Output Collector"   INPUT FEATURE_TYPE "$(PointCloudSpatialThinner_WORKSPACE_NAME)_PointCloudMerger_REFERENCED"   OUTPUT FEATURE_TYPE "$(PointCloudSpatialThinner_WORKSPACE_NAME)_Output"
+FACTORY_DEF * TeeFactory   FACTORY_NAME "$(PointCloudSpatialThinner_WORKSPACE_NAME)_Output1617361104 Output Collector"   INPUT FEATURE_TYPE "$(PointCloudSpatialThinner_WORKSPACE_NAME)_PointCloudMerger_REFERENCED"   OUTPUT FEATURE_TYPE "$(PointCloudSpatialThinner_WORKSPACE_NAME)_Output"
 INCLUDE [puts {MACRO WB_CURRENT_CONTEXT $(WB_OLD_CONTEXT_$(PointCloudSpatialThinner_WORKSPACE_NAME))}]
 FACTORY_DEF * TeeFactory   FACTORY_NAME "PointCloudSpatialThinner Output Output Renamer/Nuker"   INPUT FEATURE_TYPE PointCloudSpatialThinner_Output   OUTPUT FEATURE_TYPE PointCloudSpatialThinner_Output
 # -------------------------------------------------------------------------
 
-FACTORY_DEF * RoutingFactory FACTORY_NAME "Destination Feature Type Routing Correlator"   COMMAND_PARM_EVALUATION SINGLE_PASS   INPUT FEATURE_TYPE *    ROUTE FME_GENERIC AttributeCreator_OUTPUT TO SHAPEFILE __GO_TO_FINAL_OUTPUT_ROUTER__ <at>CopyAttributes<openparen>ENCODED<comma>diff_top_b<comma>diff_top_bot<comma>z_med_bott<comma>z_med_bottom<comma>identifica<comma>identificatie<comma>aanduiding<comma>aanduidingrecordinactief<comma>aanduidi00<comma>aanduidingrecordcorrectie<comma>inonderzoe<comma>inonderzoek<comma>documentnu<comma>documentnummer<comma>documentda<comma>documentdatum<comma>begindatum<comma>begindatumtijdvakgeldigheid<comma>einddatumt<comma>einddatumtijdvakgeldigheid<comma>gemeenteco<comma>gemeentecode<closeparen>,multi_writer_id,6,<at>SupplyAttributes<openparen>ENCODED<comma>__wb_out_feat_type__<comma>built_top_bot<closeparen> COORDINATE_SYSTEM EPSG:28992 GEOMETRY    ROUTE FME_GENERIC GeometryReplacer_OUTPUT_0_+owScOks/CU= TO SHAPEFILE __GO_TO_FINAL_OUTPUT_ROUTER__ <at>CopyAttributes<openparen>ENCODED<comma>identifica<comma>identificatie<comma>aanduiding<comma>aanduidingrecordinactief<comma>aanduidi00<comma>aanduidingrecordcorrectie<comma>inonderzoe<comma>inonderzoek<comma>documentnu<comma>documentnummer<comma>documentda<comma>documentdatum<comma>begindatum<comma>begindatumtijdvakgeldigheid<comma>einddatumt<comma>einddatumtijdvakgeldigheid<comma>gemeenteco<comma>gemeentecode<comma>z_median<comma>z.median<closeparen>,multi_writer_id,4,<at>SupplyAttributes<openparen>ENCODED<comma>__wb_out_feat_type__<comma>building_with_topZ<closeparen> COORDINATE_SYSTEM EPSG:28992 GEOMETRY    ROUTE FME_GENERIC PointCloudSpatialThinner_Output TO LAS __GO_TO_FINAL_OUTPUT_ROUTER__ multi_writer_id,0,<at>SupplyAttributes<openparen>ENCODED<comma>__wb_out_feat_type__<comma>spatialThinned_sqrt5<closeparen> GEOMETRY    ROUTE FME_GENERIC clip_PC_by_BAG_2_OUTSIDE_1_pR/1L/X2A1w= TO LAS __GO_TO_FINAL_OUTPUT_ROUTER__ multi_writer_id,3,<at>SupplyAttributes<openparen>ENCODED<comma>__wb_out_feat_type__<comma>ground_minus_BAG<closeparen> GEOMETRY    ROUTE FME_GENERIC get_ground_points_<at>Component<openparen>classification<closeparen>=0_0_nZkNT/kBpGQ= TO LAS __GO_TO_FINAL_OUTPUT_ROUTER__ multi_writer_id,1,<at>SupplyAttributes<openparen>ENCODED<comma>__wb_out_feat_type__<comma>ground_only_postThinning<closeparen> GEOMETRY    ROUTE FME_GENERIC GeometryReplacer_2_OUTPUT_0_wp2r9EHpYkI= TO SHAPEFILE __GO_TO_FINAL_OUTPUT_ROUTER__ <at>CopyAttributes<openparen>ENCODED<comma>z_med_bott<comma>z_med_bottom<comma>gemeenteco<comma>gemeentecode<closeparen>,multi_writer_id,5,<at>SupplyAttributes<openparen>ENCODED<comma>__wb_out_feat_type__<comma>built_bottomZ<closeparen> COORDINATE_SYSTEM EPSG:28992 GEOMETRY   FEATURE_TYPE_ATTRIBUTE __wb_out_feat_type__   OUTPUT ROUTED FEATURE_TYPE *    OUTPUT NOT_ROUTED FEATURE_TYPE __nuke_me__ @Tcl2("FME_StatMessage 818059 [FME_GetAttribute fme_template_feature_type] 818060 818061 fme_warn")
+FACTORY_DEF * RoutingFactory FACTORY_NAME "Destination Feature Type Routing Correlator"   COMMAND_PARM_EVALUATION SINGLE_PASS   INPUT FEATURE_TYPE *    ROUTE FME_GENERIC "AttributeRangeFilter_1.0 .. 500_0_vRthw9We7aI=" TO SHAPEFILE __GO_TO_FINAL_OUTPUT_ROUTER__ <at>CopyAttributes<openparen>ENCODED<comma>diff_top_b<comma>diff_top_bot<comma>z_med_bott<comma>z_med_bottom<comma>identifica<comma>identificatie<comma>aanduiding<comma>aanduidingrecordinactief<comma>aanduidi00<comma>aanduidingrecordcorrectie<comma>inonderzoe<comma>inonderzoek<comma>documentnu<comma>documentnummer<comma>documentda<comma>documentdatum<comma>begindatum<comma>begindatumtijdvakgeldigheid<comma>einddatumt<comma>einddatumtijdvakgeldigheid<comma>gemeenteco<comma>gemeentecode<closeparen>,multi_writer_id,6,<at>SupplyAttributes<openparen>ENCODED<comma>__wb_out_feat_type__<comma>built_top_bot<closeparen> COORDINATE_SYSTEM EPSG:28992 GEOMETRY    ROUTE FME_GENERIC GeometryReplacer_OUTPUT_0_+owScOks/CU= TO SHAPEFILE __GO_TO_FINAL_OUTPUT_ROUTER__ <at>CopyAttributes<openparen>ENCODED<comma>identifica<comma>identificatie<comma>aanduiding<comma>aanduidingrecordinactief<comma>aanduidi00<comma>aanduidingrecordcorrectie<comma>inonderzoe<comma>inonderzoek<comma>documentnu<comma>documentnummer<comma>documentda<comma>documentdatum<comma>begindatum<comma>begindatumtijdvakgeldigheid<comma>einddatumt<comma>einddatumtijdvakgeldigheid<comma>gemeenteco<comma>gemeentecode<comma>z_median<comma>z.median<closeparen>,multi_writer_id,4,<at>SupplyAttributes<openparen>ENCODED<comma>__wb_out_feat_type__<comma>building_with_topZ<closeparen> COORDINATE_SYSTEM EPSG:28992 GEOMETRY    ROUTE FME_GENERIC PointCloudSpatialThinner_Output TO LAS __GO_TO_FINAL_OUTPUT_ROUTER__ multi_writer_id,0,<at>SupplyAttributes<openparen>ENCODED<comma>__wb_out_feat_type__<comma>spatialThinned_sqrt5<closeparen> GEOMETRY    ROUTE FME_GENERIC clip_PC_by_BAG_2_OUTSIDE_1_pR/1L/X2A1w= TO LAS __GO_TO_FINAL_OUTPUT_ROUTER__ multi_writer_id,3,<at>SupplyAttributes<openparen>ENCODED<comma>__wb_out_feat_type__<comma>ground_minus_BAG<closeparen> GEOMETRY    ROUTE FME_GENERIC get_ground_points_<at>Component<openparen>classification<closeparen>=0_0_nZkNT/kBpGQ= TO LAS __GO_TO_FINAL_OUTPUT_ROUTER__ multi_writer_id,1,<at>SupplyAttributes<openparen>ENCODED<comma>__wb_out_feat_type__<comma>ground_only_postThinning<closeparen> GEOMETRY    ROUTE FME_GENERIC GeometryReplacer_2_OUTPUT_0_wp2r9EHpYkI= TO SHAPEFILE __GO_TO_FINAL_OUTPUT_ROUTER__ <at>CopyAttributes<openparen>ENCODED<comma>z_med_bott<comma>z_med_bottom<comma>gemeenteco<comma>gemeentecode<closeparen>,multi_writer_id,5,<at>SupplyAttributes<openparen>ENCODED<comma>__wb_out_feat_type__<comma>built_bottomZ<closeparen> COORDINATE_SYSTEM EPSG:28992 GEOMETRY   FEATURE_TYPE_ATTRIBUTE __wb_out_feat_type__   OUTPUT ROUTED FEATURE_TYPE *    OUTPUT NOT_ROUTED FEATURE_TYPE __nuke_me__ @Tcl2("FME_StatMessage 818059 [FME_GetAttribute fme_template_feature_type] 818060 818061 fme_warn")
 # -------------------------------------------------------------------------
 
 FACTORY_DEF * TeeFactory   FACTORY_NAME "Final Output Nuker"   INPUT FEATURE_TYPE __nuke_me__
