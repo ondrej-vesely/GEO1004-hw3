@@ -16,21 +16,20 @@
 #include <iterator>
 #include <algorithm>
 
-#include "PlaneDetector.h"
-using Point = PlaneDetector::Point;
-using Plane = PlaneDetector::Plane;
+#include "TreeDetector.h"
+using Point = TreeDetector::Point;
+using Sphere = TreeDetector::Sphere;
 
 /*
-Function that implements the RANSAC algorithm to detect one plane in the point cloud that is
+Function that implements the RANSAC algorithm to detect one spherical cluster in point cloud that is
 accessible from _input_points variable (which contains the point read from the input ply file).
 
-NOTICE that this function can be called multiple times! On each call a *new* plane should be generated
-that does not contain any inliers that belong to a previously detected plane. Each plane should
+NOTICE that this function can be called multiple times! On each call a *new* sphere should be generated
+that does not contain any inliers that belong to a previously detected sphere. Each sphere should
 have a unique segment_id (an int; '1' for the first plane, '2' for the second plane etc.).
 
 Input:
-	epsilon:          maximum distance from an inlier to corresponding plane.
-	min_score:        minimum score (= number of inlier) of a plane. Planes with a lower score
+	min_score:        minimum score (= density) of a tree sphere. Spheres with a low density
 					  should not be detected.
 	k:                number of times a new minimal set and a consencus set is computed.
 
@@ -38,7 +37,7 @@ Output:
 	Updated .segment_id's on the inliers in the newly detected plane. The inliers contain both the
 	consensus set and minimal set.
 */
-void PlaneDetector::detect_plane(double epsilon, int min_score, int k) {
+void TreeDetector::detect_tree(const int & min_score, const int & k) {
 
 	// Only on the first run
 	// Build kd-tree 
@@ -48,45 +47,46 @@ void PlaneDetector::detect_plane(double epsilon, int min_score, int k) {
 		std::cout << "KD-Tree built! \n";
 		_kdtree_built = true;
 	}
-	// And compute surface normal estimates if necessary
-	if (!_normals_built && check_normals) {
-		std::cout << "Estimating normals of all points -> ";
-		_estimate_normals(normal_radius);
-		std::cout << " Done! \n";
-		_normals_built = true;
-	}
 
-	// Amount of inliers for the best result
-	int best_score = 0;
+	// Best parameters
+	double best_score = 0;
 	// Plane params for the best result
-	Plane best_plane;
+	Sphere best_sphere;
 	// Random fragment of the whole model
 	indexArr chunk = _chunk(chunk_size);
 
-	// Do k attempts to find best result for current chunk
+	// Do k attempts to find best sphere center for current chunk
 	for (int _k = 0; _k < k; _k++) {
 
-		// Sample 3 unsegmented points defining a plane
-		Plane plane = _plane(_sample(3, chunk));
+		Point center = _sample(1, chunk)[0];
 
-		// Find inliers of that plane
-		int score = 0;
-		for (int i = 0; i < chunk.size(); i++) {
-			Point& p = _input_points[chunk[i]];
-			if (_is_inlier(p, plane, epsilon, check_normals)) {
-				score++;
+		// Attempt at all different tree radii
+		for each (double radius in tree_radii)
+		{
+			// Create a sphere
+			Sphere sphere = _sphere(center, radius);
+
+			// Find inliers of that sphere
+			int found = 0;
+			for (int i = 0; i < chunk.size(); i++) {
+				Point& p = _input_points[chunk[i]];
+				if (_is_inlier(p, sphere)) {
+					found++;
+				}
 			}
-		}
-		// Found new best plane? -> Store its parameters
-		if (score > best_score) {
-			best_score = score;
-			best_plane = plane;
+
+			// Found new best plane? -> Store its parameters
+			double score = _get_score(sphere, chunk);
+			if (score > best_score) {
+				best_score = score;
+				best_sphere = sphere;
+			}
 		}
 	}
 	// If best score is better than threshold, create a new segment
 	if (best_score > min_score) {
-		if (chunk_extrapolate) _add_segment(best_plane, epsilon);
-		else _add_segment(best_plane, epsilon, chunk);
+		if (chunk_extrapolate) _add_segment(best_sphere);
+		else _add_segment(best_sphere, chunk);
 	}
 }
 
@@ -97,7 +97,7 @@ Input:
 Output:
 	PlaneDetector._kdtree
 */
-void PlaneDetector::_build_kdtree() {
+void TreeDetector::_build_kdtree() {
 
 	std::vector<std::vector<double>> points;
 
@@ -109,93 +109,20 @@ void PlaneDetector::_build_kdtree() {
 	_kdtree = KDTree(points);
 }
 
-/*
-Calculate normal vector of a plane fitted trough a group of points
-Input:
-	Vector of Vector3d (Eigen class) coords
-Output:
-	Plane's normal as double3 (linalg class)
-*/
-double3 norm_from_points(std::vector<Vector3d> pts)
-{
-	// copy coordinates to  matrix in Eigen format
-	size_t num_atoms = pts.size();
-	Eigen::Matrix< Vector3d::Scalar, Eigen::Dynamic, Eigen::Dynamic > coord(3, num_atoms);
-	for (size_t i = 0; i < num_atoms; ++i) coord.col(i) = pts[i];
-
-	// calculate centroid
-	Vector3d centroid(coord.row(0).mean(), coord.row(1).mean(), coord.row(2).mean());
-
-	// subtract centroid
-	coord.row(0).array() -= centroid(0); coord.row(1).array() -= centroid(1); coord.row(2).array() -= centroid(2);
-
-	// we only need the left-singular matrix here
-	//  http://math.stackexchange.com/questions/99299/best-fitting-plane-given-a-set-of-points
-	auto svd = coord.jacobiSvd(Eigen::ComputeThinU | Eigen::ComputeThinV);
-	Vector3d normal = svd.matrixU().rightCols<1>();
-
-	double3 result{ normal[0], normal[1], normal[2] };
-	result = normalize(result);
-	return result;
-}
 
 /*
-Estimate surface normals of all _input_points
+Get sphere
 Input:
-	radius:		radius for creating neigbourhoods to fit normal for
+	pt:	center point
+	radius: radius
 Output:
-	PlaneDetector_input_points.normal
+	Sphere
 */
-void PlaneDetector::_estimate_normals(double radius) {
-
-	for (int i = 0; i < _input_points.size(); i++) {
-
-		if (i == 1460000) break;
-
-		Point& p = _input_points[i];
-		point_t pt{ p.x, p.y, p.z };
-		pointVec pts = _kdtree.neighborhood_points(pt, radius);
-
-		std::vector<Vector3d> nhood;
-		for (int j = 0; j < pts.size(); j++) {
-			Vector3d v3_pt{ pts[j][0], pts[j][1], pts[j][2] };
-			nhood.push_back(v3_pt);
-		}
-		// catch small neighbourhoods
-		if (nhood.size() < 3) continue;
-		_input_points[i].normal = norm_from_points(nhood);
-
-		if (i % 100000 == 0) std::cout << ".";
-	}
-}
-
-/*
-Calculate params of plane defined by 3 points.
-Input:
-	pts:	Vector of 3 points.
-Output:
-	Plane - vector of 4 doubles defining plane as Ax+By+Cz+D=0.
-*/
-Plane PlaneDetector::_plane(std::vector<Point> pts) {
-
-	Point&
-		pt1 = pts[0],
-		pt2 = pts[1],
-		pt3 = pts[2];
-
-	// Get vectors of sampled plane
-	double3 v1 = { pt2.x - pt1.x , pt2.y - pt1.y , pt2.z - pt1.z };
-	double3 v2 = { pt3.x - pt1.x , pt3.y - pt1.y , pt3.z - pt1.z };
-	double3 norm = normalize(cross(v1, v2));
-
-	float
-		A = norm[0],
-		B = norm[1],
-		C = norm[2],
-		D = -A * pt1.x - B * pt1.y - C * pt1.z;
-
-	Plane result = { A, B, C, D };
-	return result;
+Sphere TreeDetector::_sphere(Point& pt, double& radius) {
+	Sphere sphere = Sphere{ pt };
+	sphere.radius = radius;
+	sphere.volume = radius * radius;
+	return sphere;
 }
 
 /*
@@ -205,7 +132,7 @@ Input:
 Output:
 	std::vector of sampled <PlaneDetector::Point>s
 */
-std::vector<Point> PlaneDetector::_sample(int n) {
+std::vector<Point> TreeDetector::_sample(int n) {
 
 	std::vector<int> samples(n);
 	std::vector<Point> result(n);
@@ -232,7 +159,7 @@ Input:
 Output:
 	std::vector of sampled <PlaneDetector::Point>s
 */
-std::vector<Point> PlaneDetector::_sample(int n, indexArr chunk) {
+std::vector<Point> TreeDetector::_sample(int n, indexArr& chunk) {
 
 	std::vector<int> samples(n);
 	std::vector<Point> result(n);
@@ -258,7 +185,7 @@ Input:
 Output:
 	Vector of indices of the _input_points within the chunk.
 */
-indexArr PlaneDetector::_chunk(double radius) {
+indexArr TreeDetector::_chunk(double radius) {
 
 	Point p = _sample(1)[0];
 	point_t pt{ p.x, p.y, p.z };
@@ -267,68 +194,80 @@ indexArr PlaneDetector::_chunk(double radius) {
 }
 
 /*
-Check if Point is an inlier of a Plane
+Check if Point is an inlier of a Sphere
 Input:
 	p:				Point to query
-	plane:			Plane to query
-	epsilon:		Maximal distance from plane
-	check_normals:	Check if points and plane normal vectors match
+	plane:			Sphere to query
 Output:
 	bool
 */
-bool PlaneDetector::_is_inlier(Point& p, Plane& plane, double epsilon, bool check_normals) {
+bool TreeDetector::_is_inlier(Point& pt, Sphere& sphere) {
 
-	if (p.segment_id != 0) return false;
+	auto x_diff = (sphere.x - pt.x) * (sphere.x - pt.x);
+	auto y_diff = (sphere.y - pt.y) * (sphere.y - pt.y);
+	auto z_diff = (sphere.z - pt.z) * (sphere.z - pt.z);
+	double dist2 = x_diff + y_diff + z_diff;
 
-	double&
-		A = plane[0],
-		B = plane[1],
-		C = plane[2],
-		D = plane[3];
+	return (dist2 <= (sphere.radius * sphere.radius));
+}
 
-	double dist_pow = abs(A * p.x + B * p.y + C * p.z + D) / sqrt(A * A + B * B + C * C);
-	if (dist_pow < epsilon) {
-		if (!check_normals || p.normal == double3{ 0,0,0 }
-			|| abs(linalg::dot(p.normal, plane.normal())) > normal_tol) {
-			return true;
+double TreeDetector::_get_score(Sphere& sphere) {
+
+	int number = 0;
+	for (int i = 0; i < _input_points.size(); i++) {
+		Point& p = _input_points[i];
+		if (_is_inlier(p, sphere)) {
+			number++;
 		}
 	}
-	return false;
+	return number / sphere.volume;
+}
+
+double TreeDetector::_get_score(Sphere& sphere, indexArr& chunk) {
+
+	int number = 0;
+	for (int i = 0; i < chunk.size(); i++) {
+		Point& p = _input_points[chunk[i]];
+		if (_is_inlier(p, sphere)) {
+			number++;
+		}
+	}
+	return number / sphere.volume;
 }
 
 /*
-Assign _input_points inside this Plane to a new segment.
+Assign _input_points inside this Sphere to a new segment.
 Input:
-	plane:			Plane to assign
-	epsilon:		Maximal distance from plane
+	plane:			Sphere to assign
 Output:
 	updated _input_points.segment_id
 */
-void PlaneDetector::_add_segment(Plane& plane, double epsilon) {
-	_plane_count++;
+void TreeDetector::_add_segment(Sphere& sphere) {
+
+	_tree_count++;
 	for (int i = 0; i < _input_points.size(); i++) {
 		Point& p = _input_points[i];
-		if (_is_inlier(p, plane, epsilon, check_normals)) {
-			p.segment_id = _plane_count;
+		if (_is_inlier(p, sphere)) {
+			p.segment_id = _tree_count;
 		}
 	}
 }
 
 /*
-Assign _input_points from a chunk inside this Plane to a new segment.
+Assign _input_points from a chunk inside this Sphere to a new segment.
 Input:
-	plane:			Plane to assign
-	epsilon:		Maximal distance from plane
+	plane:			Sphere to assign
 	chunk:			Vector of indicies of _input_points belonging to the chunk.
 Output:
 	updated _input_points.segment_id
 */
-void PlaneDetector::_add_segment(Plane& plane, double epsilon, indexArr chunk) {
-	_plane_count++;
+void TreeDetector::_add_segment(Sphere& sphere, indexArr& chunk) {
+
+	_tree_count++;
 	for (int i = 0; i < chunk.size(); i++) {
 		Point& p = _input_points[chunk[i]];
-		if (_is_inlier(p, plane, epsilon, check_normals)) {
-			p.segment_id = _plane_count;
+		if (_is_inlier(p, sphere)) {
+			p.segment_id = _tree_count;
 		}
 	}
 }
@@ -355,7 +294,7 @@ Template:
 	85175.69 446742.58 1.52 1
 	85174.45 446741.94 9.52 1
 */
-void PlaneDetector::write_ply(std::string filepath) {
+void TreeDetector::write_ply(std::string filepath) {
 
 	std::ofstream file(filepath);
 	char buffer[50];
@@ -386,7 +325,7 @@ void PlaneDetector::write_ply(std::string filepath) {
 
 This function is already implemented.
 */
-bool PlaneDetector::read_ply(std::string filepath) {
+bool TreeDetector::read_ply(std::string filepath) {
 
 	std::cout << "Reading file: " << filepath << std::endl;
 	std::ifstream infile(filepath.c_str(), std::ifstream::in);

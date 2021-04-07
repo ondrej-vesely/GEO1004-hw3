@@ -39,7 +39,7 @@
 #include "ArcBall.h"
 #include "ArcBallCamera.h"
 
-#include "../PlaneDetector.h"
+#include "../TreeDetector.h"
 
 using namespace Magnum;
 using namespace Magnum::Examples;
@@ -47,7 +47,7 @@ using namespace Math::Literals;
 using Object3D = SceneGraph::Object<SceneGraph::MatrixTransformation3D>;
 using Scene3D = SceneGraph::Scene<SceneGraph::MatrixTransformation3D>;
 
-int runViewer(PlaneDetector& detector, int argc, char** argv);
+int runViewer(TreeDetector& detector, int argc, char** argv);
 
 // set the number of colors in the colormap
 const int CMAP_SIZE=512;
@@ -61,7 +61,7 @@ struct BBox {
     double y_max = -std::numeric_limits<double>::max();
     double z_max = -std::numeric_limits<double>::max();
 
-    BBox(const std::vector<PlaneDetector::Point>& points) {
+    BBox(const std::vector<TreeDetector::Point>& points) {
         for (const auto& p : points) {
             add_point(p);
         }
@@ -95,7 +95,7 @@ struct BBox {
 
 class Viewer: public Platform::Application {
     public:
-        explicit Viewer(const Arguments& arguments, PlaneDetector& detector);
+        explicit Viewer(const Arguments& arguments, TreeDetector& detector);
     
     private:
         void drawEvent() override;
@@ -127,7 +127,7 @@ class Viewer: public Platform::Application {
         Color4 _clearColor = 0x222222ff_rgbaf;
         float _pointSize = 2.0f;
 
-        PlaneDetector& _detector;
+        TreeDetector& _detector;
         std::map<int,int> _segments;
 };
 
@@ -150,7 +150,7 @@ class VisualizationDrawable: public SceneGraph::Drawable3D {
         GL::Mesh& _mesh;
 };
 
-Viewer::Viewer(const Arguments& arguments, PlaneDetector& detector):
+Viewer::Viewer(const Arguments& arguments, TreeDetector& detector):
     Platform::Application{
         arguments, 
         Configuration{}.setTitle("geo1015.hw03").setWindowFlags(Configuration::WindowFlag::Resizable)
@@ -403,7 +403,7 @@ void Viewer::textInputEvent(TextInputEvent& event) {
     if(_imgui.handleTextInputEvent(event)) return;
 }
 
-int runViewer(PlaneDetector& detector, int argc, char** argv) {
+int runViewer(TreeDetector& detector, int argc, char** argv) {
     Viewer app({argc, argv}, detector);
     return app.exec();
 }

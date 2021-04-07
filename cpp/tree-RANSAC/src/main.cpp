@@ -19,11 +19,11 @@ namespace fs = std::filesystem;
 #include <nlohmann-json/json.hpp>
 using json = nlohmann::json;
 
-//-- our PlaneDetector class
-#include "PlaneDetector.h"
+//-- our TreeDetector class
+#include "TreeDetector.h"
 
 //-- declarations of the runViewer function that launches the Viewer
-int runViewer(PlaneDetector& detector, int argc, char** argv);
+int runViewer(TreeDetector& detector, int argc, char** argv);
 
 
 /*
@@ -58,7 +58,7 @@ int main(int argc, char** argv)
 	std::string input_file = j["input_file"];
 	std::string output_file = j["output_file"];
 
-	PlaneDetector detector;
+	TreeDetector detector;
 
 	//-- I extend params.json with some addtional parameters
 	//-- If they are missing in the file, defaults defined in PlaneDetector are used.
@@ -94,7 +94,7 @@ int main(int argc, char** argv)
 	auto start = std::chrono::high_resolution_clock::now();
 
 	for (int i = 0; i < n_planes; ++i) {
-		detector.detect_plane(epsilon, min_score, k);
+		detector.detect_tree(min_score, k);
 	}
 
 	auto finish = std::chrono::high_resolution_clock::now();
