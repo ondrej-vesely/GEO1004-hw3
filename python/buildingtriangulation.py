@@ -56,35 +56,48 @@ for ID in polygon_dict:
 
         #//// hole part ///// 
         if ID in hole_dict: 
+            pointsetinteriorrings = []
+            pointsetinteriorrings.clear()
+            segmentlistholeset = []
+            segmentlistholeset.clear()
+            centroidlist = []
+            centroidlist.clear()
 
-            segmentindexlisthole = []
-            segmentindexlisthole.clear()
-            # print(segmentindexlisthole)
-            indexcount = len(segmentindexlist)
-            print(indexcount)
-            for vertex in hole_dict[ID][0][:-1]:
-                #print(vertex)
-                if vertex == hole_dict[ID][0][-2]:
-                    segmentS = indexcount
-                    segmentE = len(segmentindexlist)
-                else:
-                    segmentS = indexcount
-                    segmentE = indexcount + 1
+            for hole in hole_dict[ID]:
 
-                segment = [segmentS, segmentE]
-                segmentindexlisthole.append(segment)
-                indexcount = indexcount +1
+                segmentindexlisthole = []
+                segmentindexlisthole.clear()
+                indexcount = len(segmentindexlist)+len(segmentlistholeset)
+                print(segmentlistholeset)
+                print(len(segmentlistholeset))
 
-            pointsetinterior = hole_dict[ID][0][:-1]
+                for vertex in hole[:-1]:
 
-            x = [p[0] for p in pointsetinterior]
-            y = [p[1] for p in pointsetinterior]
-            centroid = ([[sum(x) / len(pointsetinterior), sum(y) / len(pointsetinterior)]])
-            segmentset = segmentindexlist+segmentindexlisthole
-            vertexset = pointsetexterior+pointsetinterior
+                    if vertex == hole[-2]:
+                        segmentS = indexcount
+                        segmentE = len(segmentindexlist)+len(segmentlistholeset)
+
+                    else:
+                        segmentS = indexcount
+                        segmentE = indexcount + 1
+
+                    segment = [segmentS, segmentE]
+                    segmentindexlisthole.append(segment)
+                    indexcount = indexcount +1
+
+                pointsetinterior = hole[:-1]
+                pointsetinteriorrings = pointsetinteriorrings + pointsetinterior
+                segmentlistholeset = segmentlistholeset + segmentindexlisthole
+                x = [p[0] for p in pointsetinterior]
+                y = [p[1] for p in pointsetinterior]
+                centroid = ([[sum(x) / len(pointsetinterior), sum(y) / len(pointsetinterior)]])
+                centroidlist = centroidlist + centroid
+
+            segmentset = segmentindexlist+segmentlistholeset
+            vertexset = pointsetexterior+pointsetinteriorrings
 
             points = dict(vertices = (vertexset))
-            input = dict(segments = segmentset, vertices = (vertexset), holes = centroid)
+            input = dict(segments = segmentset, vertices = (vertexset), holes = centroidlist)
             print(input)
             triangulation = triangle.triangulate(input, 'p')
             triangle.compare(plt, points, triangulation)
