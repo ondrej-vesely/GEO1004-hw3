@@ -13,10 +13,6 @@ using Sphere = TreeDetector::Sphere;
 Function that implements the RANSAC algorithm to detect one spherical cluster in point cloud that is
 accessible from _input_points variable (which contains the point read from the input ply file).
 
-NOTICE that this function can be called multiple times! On each call a *new* sphere should be generated
-that does not contain any inliers that belong to a previously detected sphere. Each sphere should
-have a unique segment_id (an int; '1' for the first plane, '2' for the second plane etc.).
-
 Input:
 	min_score:        minimum score (= density) of a tree sphere. Spheres with a low density
 					  should not be detected.

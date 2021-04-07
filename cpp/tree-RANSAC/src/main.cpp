@@ -40,6 +40,9 @@ int main(int argc, char** argv)
 		return 1;
 	}
 	json j; json_file >> j;
+
+	TreeDetector detector;
+
 	int n_trees = j["n_trees"];
 	int k = j["k"];
 	double min_score = j["min_score"];
@@ -47,10 +50,9 @@ int main(int argc, char** argv)
 	std::string output_ply = j["output_ply"];
 	std::string output_obj = j["output_obj"];
 
-	TreeDetector detector;
-
 	//-- I extend params.json with some addtional parameters
 	//-- If they are missing in the file, defaults defined in PlaneDetector are used.
+
 	try {
 		detector.min_count = j["min_count"];
 		detector.chunk_size = j["chunk_size"];
