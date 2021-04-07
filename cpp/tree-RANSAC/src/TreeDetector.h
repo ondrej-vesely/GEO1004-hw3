@@ -9,23 +9,17 @@ using double3 = linalg::aliases::double3;
 using double4 = linalg::aliases::double4;
 //-- KDtree lib https://github.com/crvs/KDTree
 #include "KDTree.hpp"
-//-- Eigen lib https://eigen.tuxfamily.org/dox/
-#include <Eigen/Core>
-#include <Eigen/Dense>
-using Vector3d = Eigen::Vector3d;
 
 
 class TreeDetector {
 
 public:
 
+	std::vector<double> tree_radii{ 3,5,7,9,12 };
 	//-- Some default params to be loaded from params.json
-	std::vector<double> tree_radii{ 3,4,5,6,8,10 };
+	int min_count = 15;
 	double chunk_size = 25;
 	bool chunk_extrapolate = true;
-	bool check_normals = false;
-	double normal_tol = 0.8;
-	double normal_radius = 1;
 
 	struct Point : double3 {
 		using double3::double3;
@@ -34,11 +28,10 @@ public:
 
 	struct Sphere : Point {
 		double radius = 0;
-		double volume = 0;
 	};
 	
 	//-- The main tree detection function
-	void detect_tree(const int & min_score, const int & k);
+	void detect_tree(const double & min_score, const int & k);
 	//-- .PLY reading 
 	bool read_ply(std::string filepath);
 	//-- .PLY writing
@@ -73,12 +66,6 @@ private:
 
 	//-- Check if point is inlier of a plane
 	bool _is_inlier(Point& pt, Sphere& sphere);
-
-	//-- Get density score of a sphere
-	double _get_score(Sphere& sphere);
-
-	//-- Get density score of a sphere inside a chunk
-	double _get_score(Sphere& sphere, indexArr& chunk);
 
 	//-- Assign unsegmented inliers of plane to a new segment
 	void _add_segment(Sphere& sphere);

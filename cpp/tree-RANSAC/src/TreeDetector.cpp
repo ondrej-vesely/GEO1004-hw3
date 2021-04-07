@@ -37,7 +37,7 @@ Output:
 	Updated .segment_id's on the inliers in the newly detected plane. The inliers contain both the
 	consensus set and minimal set.
 */
-void TreeDetector::detect_tree(const int & min_score, const int & k) {
+void TreeDetector::detect_tree(const double & min_score, const int & k) {
 
 	// Only on the first run
 	// Build kd-tree 
@@ -53,11 +53,14 @@ void TreeDetector::detect_tree(const int & min_score, const int & k) {
 	// Plane params for the best result
 	Sphere best_sphere;
 	// Random fragment of the whole model
+
 	indexArr chunk = _chunk(chunk_size);
 
 	// Do k attempts to find best sphere center for current chunk
 	for (int _k = 0; _k < k; _k++) {
 
+		auto sample = _sample(1, chunk);
+		if (sample.size() < 1) { return; }
 		Point center = _sample(1, chunk)[0];
 
 		// Attempt at all different tree radii
@@ -75,11 +78,13 @@ void TreeDetector::detect_tree(const int & min_score, const int & k) {
 				}
 			}
 
-			// Found new best plane? -> Store its parameters
-			double score = _get_score(sphere, chunk);
-			if (score > best_score) {
-				best_score = score;
-				best_sphere = sphere;
+			if (found > min_count) {
+				double score =  found / pow(sphere.radius, 1.5);
+				// Found new best sphere -> Store its parameters
+				if (score > best_score) {
+					best_score = score;
+					best_sphere = sphere;
+				}
 			}
 		}
 	}
@@ -121,7 +126,6 @@ Output:
 Sphere TreeDetector::_sphere(Point& pt, double& radius) {
 	Sphere sphere = Sphere{ pt };
 	sphere.radius = radius;
-	sphere.volume = radius * radius;
 	return sphere;
 }
 
@@ -139,10 +143,13 @@ std::vector<Point> TreeDetector::_sample(int n) {
 	std::uniform_int_distribution<int> distrib(0, _input_points.size() - 1);
 
 	for (int i = 0; i < n; i++) {
+		int limit = 1000;
 		int rand = distrib(_rand);
 		while (std::count(samples.begin(), samples.end(), rand)
 			|| _input_points[rand].segment_id != 0)
 		{
+			limit--;
+			if (limit < 0) { break; }
 			rand = distrib(_rand);
 		}
 		samples[i] = rand;
@@ -167,9 +174,12 @@ std::vector<Point> TreeDetector::_sample(int n, indexArr& chunk) {
 
 	for (int i = 0; i < n; i++) {
 		int rand = distrib(_rand);
+		int limit = 1000;
 		while (std::count(samples.begin(), samples.end(), rand)
 			|| _input_points[chunk[rand]].segment_id != 0)
 		{
+			limit--;
+			if (limit < 0) { break; }
 			rand = distrib(_rand);
 		}
 		samples[i] = rand;
@@ -187,10 +197,20 @@ Output:
 */
 indexArr TreeDetector::_chunk(double radius) {
 
-	Point p = _sample(1)[0];
-	point_t pt{ p.x, p.y, p.z };
-	indexArr indicies = _kdtree.neighborhood_indices(pt, radius);
-	return indicies;
+	Point center = _sample(1)[0];
+	indexArr chunk;
+
+	for (size_t i = 0; i < _input_points.size(); i++) {
+		Point& p = _input_points[i];
+		if (
+			(p.x > center.x - radius && p.x < center.x + radius) &&
+			(p.y > center.y - radius && p.y < center.y + radius)
+			) {
+			chunk.push_back(i); 
+		}
+	}
+
+	return chunk;
 }
 
 /*
@@ -203,6 +223,8 @@ Output:
 */
 bool TreeDetector::_is_inlier(Point& pt, Sphere& sphere) {
 
+	if (pt.segment_id != 0) { return false; }
+
 	auto x_diff = (sphere.x - pt.x) * (sphere.x - pt.x);
 	auto y_diff = (sphere.y - pt.y) * (sphere.y - pt.y);
 	auto z_diff = (sphere.z - pt.z) * (sphere.z - pt.z);
@@ -211,29 +233,6 @@ bool TreeDetector::_is_inlier(Point& pt, Sphere& sphere) {
 	return (dist2 <= (sphere.radius * sphere.radius));
 }
 
-double TreeDetector::_get_score(Sphere& sphere) {
-
-	int number = 0;
-	for (int i = 0; i < _input_points.size(); i++) {
-		Point& p = _input_points[i];
-		if (_is_inlier(p, sphere)) {
-			number++;
-		}
-	}
-	return number / sphere.volume;
-}
-
-double TreeDetector::_get_score(Sphere& sphere, indexArr& chunk) {
-
-	int number = 0;
-	for (int i = 0; i < chunk.size(); i++) {
-		Point& p = _input_points[chunk[i]];
-		if (_is_inlier(p, sphere)) {
-			number++;
-		}
-	}
-	return number / sphere.volume;
-}
 
 /*
 Assign _input_points inside this Sphere to a new segment.

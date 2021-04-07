@@ -1,14 +1,3 @@
-/*
-  GEO1015.2020
-  hw03
-  --
-  Ondrej Vesely
-  5162130
-  Guilherme Spinoza Andreo
-  5383994
-*/
-
-
 #include <iostream>
 #include <fstream>
 #include <chrono>
@@ -51,23 +40,21 @@ int main(int argc, char** argv)
 		return 1;
 	}
 	json j; json_file >> j;
-	int n_planes = j["n_planes"];
+	int n_trees = j["n_trees"];
 	int k = j["k"];
-	int min_score = j["min_score"];
-	float epsilon = j["epsilon"];
+	double min_score = j["min_score"];
 	std::string input_file = j["input_file"];
-	std::string output_file = j["output_file"];
+	std::string output_ply = j["output_ply"];
+	std::string output_obj = j["output_obj"];
 
 	TreeDetector detector;
 
 	//-- I extend params.json with some addtional parameters
 	//-- If they are missing in the file, defaults defined in PlaneDetector are used.
 	try {
+		detector.min_count = j["min_count"];
 		detector.chunk_size = j["chunk_size"];
 		detector.chunk_extrapolate = j["chunk_extrapolate"];
-		detector.check_normals = j["check_normals"];
-		detector.normal_tol = j["normal_tol"];
-		detector.normal_radius = j["normal_radius"];
 	}
 	catch (...) {
 		std::cout << "WARN: Your params.json seems to be missing some values.\n"
@@ -75,15 +62,12 @@ int main(int argc, char** argv)
 	}
 	std::cout
 		<< "PARAMS: " << "\n"
-		<< "	n_planes: " << n_planes << "\n"
+		<< "	n_trees: " << n_trees << "\n"
 		<< "	k: " << k << "\n"
 		<< "	min_score: " << min_score << "\n"
-		<< "	epsilon: " << epsilon << "\n"
+		<< "	min_count: " << detector.min_count << "\n"
 		<< "	chunk_size: " << detector.chunk_size << "\n"
-		<< "	chunk_extrapolate: " << std::boolalpha << detector.chunk_extrapolate << "\n"
-		<< "	check_normals: " << std::boolalpha << detector.check_normals << "\n"
-		<< "	normal_tol: " << detector.normal_tol << "\n"
-		<< "	normal_radius: " << detector.normal_radius << "\n";
+		<< "	chunk_extrapolate: " << std::boolalpha << detector.chunk_extrapolate << "\n";
 
 	//-- read point cloud from input .ply file, exit if it fails
 	if (!detector.read_ply(input_file)) {
@@ -93,20 +77,20 @@ int main(int argc, char** argv)
 	//-- perform plane detection and time how long it takes
 	auto start = std::chrono::high_resolution_clock::now();
 
-	for (int i = 0; i < n_planes; ++i) {
+	for (int i = 0; i < n_trees; ++i) {
 		detector.detect_tree(min_score, k);
 	}
 
 	auto finish = std::chrono::high_resolution_clock::now();
 	std::chrono::duration<double> elapsed = finish - start;
-	std::cout << std::fixed << std::setprecision(3) << "--- Plane detection took " << elapsed.count() << " seconds ---" << std::endl;
+	std::cout << std::fixed << std::setprecision(3) << "--- Tree segmentation took " << elapsed.count() << " seconds ---" << std::endl;
 
 
 	//-- open the viewer
 	runViewer(detector, argc, argv);
 
 	//-- write the detection result to output .ply file (after the viewer is closed)
-	detector.write_ply(output_file);
+	detector.write_ply(output_ply);
 
 	//-- we're done, return 0 to say all went fine
 	return 0;
