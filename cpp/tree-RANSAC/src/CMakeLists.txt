@@ -4,7 +4,7 @@ find_package(Magnum REQUIRED GL Sdl2Application SceneGraph)
 set_directory_properties(PROPERTIES CORRADE_USE_PEDANTIC_FLAGS ON)
 
 add_definitions(
-  -DJSON_PARAMS_PATH=\"${PROJECT_SOURCE_DIR}/data/params.json\"
+  -DJSON_PARAMS_PATH=\"${PROJECT_SOURCE_DIR}/../../_data/trees/params.json\"
 )
 
 corrade_add_resource(PointShader_RESOURCES Viewer/resources.conf)
