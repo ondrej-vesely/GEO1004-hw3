@@ -11,7 +11,6 @@ corrade_add_resource(PointShader_RESOURCES Viewer/resources.conf)
 add_executable(hw03 
   main.cpp
   TreeDetector.cpp
-  KDTree.cpp
   Viewer/Viewer.cpp
   Viewer/PointShader.cpp
   Viewer/ArcBall.cpp

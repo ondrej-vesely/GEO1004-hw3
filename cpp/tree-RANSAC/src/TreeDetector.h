@@ -7,8 +7,7 @@
 #include <linalg/linalg.h>
 using double3 = linalg::aliases::double3;
 using double4 = linalg::aliases::double4;
-//-- KDtree lib https://github.com/crvs/KDTree
-#include "KDTree.hpp"
+using indexArr = std::vector< size_t >;
 
 
 class TreeDetector {
@@ -46,11 +45,6 @@ private:
 
 	//-- Current count of segmented trees
 	int _tree_count = 0;
-
-	//-- Input points in kdtree
-	KDTree _kdtree;
-	void _build_kdtree();
-	bool _kdtree_built = false;
 
 	//-- Sample from yet unsegmented input points
 	std::vector<Point> _sample(int n);

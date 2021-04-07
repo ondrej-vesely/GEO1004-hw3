@@ -1,14 +1,3 @@
-/*
-  GEO1015.2020
-  hw03
-  --
-  Ondrej Vesely
-  5162130
-  Guilherme Spinoza Andreo
-  5383994
-*/
-
-
 #include <iostream>
 #include <fstream>
 #include <sstream>
@@ -39,14 +28,6 @@ Output:
 */
 void TreeDetector::detect_tree(const double & min_score, const int & k) {
 
-	// Only on the first run
-	// Build kd-tree 
-	if (!_kdtree_built) {
-		std::cout << "Building KD-Tree. \n";
-		_build_kdtree();
-		std::cout << "KD-Tree built! \n";
-		_kdtree_built = true;
-	}
 
 	// Best parameters
 	double best_score = 0;
@@ -93,25 +74,6 @@ void TreeDetector::detect_tree(const double & min_score, const int & k) {
 		if (chunk_extrapolate) _add_segment(best_sphere);
 		else _add_segment(best_sphere, chunk);
 	}
-}
-
-
-/*
-Build KDTree from _input_points.
-Input:
-Output:
-	PlaneDetector._kdtree
-*/
-void TreeDetector::_build_kdtree() {
-
-	std::vector<std::vector<double>> points;
-
-	for (int i = 0; i < _input_points.size(); i++) {
-		Point& p = _input_points[i];
-		std::vector<double> pt = { p.x, p.y, p.z };
-		points.push_back(pt);
-	}
-	_kdtree = KDTree(points);
 }
 
 
