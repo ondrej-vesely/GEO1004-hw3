@@ -17,6 +17,38 @@ cj_dict= {
         "vertices": []
         }
 
+def swaporientation(face):
+    faceoriginal = face[0]
+    faceswapped = np.array([faceoriginal[2], faceoriginal[1], faceoriginal[0]], dtype=int32)
+    return faceswapped.tolist()
+
+def wallgenerator(floorvertexlist, indexstartreference):
+    
+    walllist = []
+
+    i=0
+
+    for vertex in floorvertexlist:
+        
+        #create faceA
+        vertexA1 = indexstartreference+1
+        vertexA2 = indexstartreference+len(floorvertexlist)
+        vertexA3 = indexstartreference
+
+        faceA = [vertexA1 + i, vertexA2 + i, vertexA3 + i]
+        walllist.append(faceA)
+
+        #create faceB
+        vertexB1 = indexstartreference+len(floorvertexlist)+1
+        vertexB2 = indexstartreference+len(floorvertexlist)
+        vertexB3 = indexstartreference+1
+
+        faceB = [vertexB1 + i, vertexB2 + i, vertexB3 + i]
+        walllist.append(faceB)
+
+        i = i+1
+
+    return walllist
 
 def obj_former(id_ ,triangdic , dic, built_num):
     # TODO: push wall surface, push roof surface push cieling surface,
@@ -65,6 +97,10 @@ def obj_former(id_ ,triangdic , dic, built_num):
     len_vert_preexist = len(dic["vertices"])
     len_vert_local = len (vert_list)
 
+    # create the walls 
+    walls = wallgenerator(vert_list, len_vert_preexist)
+    # store the walls in the build_dict
+
     face_list_top = [[j+(len_vert_preexist) for j in i] for i in tri_list] 
     face_list_bot = [[j+(len_vert_preexist+len_vert_local) for j in i] for i in tri_list] 
 
@@ -81,9 +117,11 @@ def obj_former(id_ ,triangdic , dic, built_num):
     # print(dic["CityObjects"] )
     dic["vertices"] = original_json_vertex
 
-    build_dict["geometry"][0]["boundaries"] = tri_list # need to upddate this value to add 
+    build_dict["geometry"][0]["boundaries"] = tri_list.tolist() # need to upddate this value to add 
     # dic["CityObjects"]["Building_"+str(built_num)] = build_dict
     
+    build_dict["geometry"][0]["boundaries"].extend(walls)
+
     dic["CityObjects"].update({ "Building_"+str(built_num) : build_dict})
     # print(dic["CityObjects"]["Building_1"])
     print(id_)
@@ -210,10 +248,35 @@ for ID in polygon_dict:
             # print(triangulation['vertices'])
             # print(triangulation['triangles'])
             # plt.show()
+
         t = triangulation
         # cj_dict = json.load(open(  os.path.join("..\_data", "building_output.obj"), "w+" ))
         cj_dict = obj_former(ID, t , cj_dict, count)
-        
+
+
+# def wallgenerator(floorvertexlist, vertexindexlist, indexstartreference)
+#     #create input list or what exactly is required as input?
+#     trianglewalllist = []
+
+#     for vertex in floorvertexlist:
+
+#         create faceA
+#         vertexA = vertex = vertexindexlist[indexstartreference]
+#         vertexB = vertex with top z value = vertexindexlist[indexstartreference+len(floorvertexlist)] #important that the vertices of the floor are stored in the same order as for the top
+#         vertexC = vertex+1 to the clockwise direction = vertexindexlist[indexstartreference+1]
+
+#         create faceB
+#         vertexA = vertex+1 to the clockwise direction = vertexindexlist[indexstartreference+1]
+#         vertexB = vertex with top z value = vertexindexlist[indexstartreference+len(floorvertexlist)] #important that the vertices of the floor are stored in the same order as for the top
+#         vertexC = vertex+1 to the clockwise direction with top z value = vertexindexlist[indexstartreference+len(floorvertexlist)+1] #important that the vertices of the floor are stored in the same order as for the top
+
+#         trianglewalllist.append(faceA, faceB)
+    
+#     return trianglewalllist
+
+
+# push walls at the end in the build_dict -> ... boundary
+
 # print(t)
         #to do:
         #attach z values, flip to create roof, create sides, export to cityJSON
