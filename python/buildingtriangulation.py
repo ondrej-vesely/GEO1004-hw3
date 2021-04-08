@@ -87,6 +87,9 @@ def obj_former(id_ ,triangdic , dic, built_num):
     # take height vals by id
     top = float(heights_dict[id_]["top"])
     bot = float(heights_dict[id_]["bottom"])
+    yr_= heights_dict[id_]["yr"]
+    del_ht = top-bot
+    no_floor = 1 + int((del_ht)/3)
 
     vert_list = triangdic["vertices"]
     tri_list = triangdic["triangles"]
@@ -122,16 +125,16 @@ def obj_former(id_ ,triangdic , dic, built_num):
     build_dict["geometry"][0]["boundaries"] = face_list_bot
     build_dict["geometry"][0]["boundaries"].extend(walls)
     build_dict["geometry"][0]["semantics"]["values"] = [0]*len_vert_local + [1]*len_vert_local + [2]*len_vert_local 
-    # built_dict["attributes"] = { "yearOfConstruction": ,
-    #                                  "measuredHeight": top-bot,
-    #                                  "storeysAboveGround": int((top-bot)/3)
-    #                             }
+    build_dict["attributes"] = { "yearOfConstruction": yr_,
+                                     "measuredHeight": del_ht,
+                                     "storeysAboveGround": no_floor
+                                }
 
     dic["CityObjects"].update({ id_ : build_dict})
-    # print(dic["CityObjects"]["Building_1"])
+    
     print(id_)
     print(len(dic["vertices"]))
-    # print(dic["vertices"][0])
+    
     
     return dic
 
