@@ -61,6 +61,13 @@ def obj_former(id_ ,triangdic , dic, built_num):
     vert_list_top = np.array([np.append(i, top) for i in vert_list])
     vert_list_bot = np.array([np.append(i, bot) for i in vert_list])
     
+    # get length of preexisting vertices in dictionary
+    len_vert_preexist = len(dic["vertices"])
+    len_vert_local = len (vert_list)
+
+    face_list_top = [[j+(len_vert_preexist) for j in i] for i in tri_list] 
+    face_list_bot = [[j+(len_vert_preexist+len_vert_local) for j in i] for i in tri_list] 
+
     to_send_json_vertex_list = np.append(vert_list_top, vert_list_bot, 0)
     
 
@@ -70,7 +77,7 @@ def obj_former(id_ ,triangdic , dic, built_num):
     else:
         original_json_vertex = []
 
-    original_json_vertex.append(to_send_json_vertex_list.tolist())
+    original_json_vertex.extend(to_send_json_vertex_list.tolist())
     # print(dic["CityObjects"] )
     dic["vertices"] = original_json_vertex
 
@@ -78,9 +85,9 @@ def obj_former(id_ ,triangdic , dic, built_num):
     # dic["CityObjects"]["Building_"+str(built_num)] = build_dict
     
     dic["CityObjects"].update({ "Building_"+str(built_num) : build_dict})
-    print(dic["CityObjects"]["Building_1"])
+    # print(dic["CityObjects"]["Building_1"])
     print(id_)
-    print(len(dic["vertices"][0]))
+    print(len(dic["vertices"]))
     # print(dic["vertices"][0])
 
     # update values 
