@@ -48,6 +48,34 @@ def wallgenerator(floorvertexlist, indexstartreference):
         
     return walllist
 
+def getgeographicalExtent(floorvertexlist, min_z, max_z):
+
+    min = [0, 0, 0]
+    max = [0, 0, 0]
+
+    for vertex in floorvertexlist:
+        x = vertex[0]
+        y = vertex[1]
+
+        if min == [0, 0, 0]:
+            min = [x, y, 0]
+            max = [x, y, 0]
+        else:
+            if x < min[0]:
+                min[0] = x
+            if x > max[0]:
+                max[0] = x
+            if y < min[1]:
+                min[1] = y
+            if y > max[1]:
+                max[1] = y
+
+    min[2] = min_z
+    max[2] = max_z 
+    minmax = min + max
+
+    return minmax
+
 def write_CityJSON(json_dic):
     file_path = os.path.join("../_data", "building_output.json")
     fh = open(file_path, "w+")#, encoding='utf-8')
@@ -64,6 +92,7 @@ def obj_former(id_ ,triangdic , dic, built_num):
     print(triangdic["triangles"])
     build_dict= {
             "type":"Building",
+            "geographicalExtent": [],
             "attributes": {},
             "geometry":[{"type": "MultiSurface",
                          "lod":1.2,
@@ -148,6 +177,8 @@ def obj_former(id_ ,triangdic , dic, built_num):
                                      "measuredHeight": del_ht,
                                      "storeysAboveGround": no_floor
                                 }
+                                
+    build_dict["geographicalExtent"] = getgeographicalExtent(vert_list, bot, top)
 
     dic["CityObjects"].update({ id_ : build_dict})
     
