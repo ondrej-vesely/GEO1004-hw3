@@ -1,4 +1,4 @@
-import fiona
+# import fiona
 import triangle
 import matplotlib.pyplot as plt
 import numpy as np
@@ -9,8 +9,12 @@ import os
 cj_dict= {  
         "type": "CityJSON",
         "version": "1.0",
-        # "metadata": {"geographicalExtent": [] #TODO populate with extent values
-        #             },
+        "metadata": {
+              "referenceSystem":{
+                "type":"string",
+                "pattern":"EPSG::7415$"
+                }
+              },
         "CityObjects": { # TODO: fill in building dictionaries here
                         
                        },
@@ -36,7 +40,7 @@ def wallgenerator(floorvertexlist, indexstartreference):
         vertexA3 = indexstartreference
 
         faceA = [vertexA1 + i, vertexA2 + i, vertexA3 + i]
-        walllist.append(faceA)
+        walllist.append([faceA])
 
         #create faceB
         vertexB1 = indexstartreference+len(floorvertexlist)+1
@@ -44,7 +48,7 @@ def wallgenerator(floorvertexlist, indexstartreference):
         vertexB3 = indexstartreference+1
 
         faceB = [vertexB1 + i, vertexB2 + i, vertexB3 + i]
-        walllist.append(faceB)
+        walllist.append([faceB])
         
     return walllist
 
@@ -78,8 +82,8 @@ def getgeographicalExtent(floorvertexlist, min_z, max_z):
 
 def write_CityJSON(json_dic):
     file_path = os.path.join("../_data", "building_output.json")
-    fh = open(file_path, "w+", encoding='utf-8')
-    json.dump(json_dic, fh, ensure_ascii=False, indent=4)
+    fh = open(file_path, "w+")#, encoding='utf-8')
+    json.dump(json_dic, fh, indent=2)#, ensure_ascii=False, indent=4)
     fh.close()
     print("voila! json updated")
 
@@ -89,12 +93,15 @@ def obj_former(id_ ,triangdic , dic, built_num):
     # TODO: attach attributes to the buildings
 
     print(built_num)
+    print(triangdic["triangles"])
     build_dict= {
             "type":"Building",
             "geographicalExtent": [],
             "attributes": {},
-            "geometry":[{"boundaries": [] ,
-                                "lod":1.2,
+            "geometry":[{"type": "MultiSurface",
+                         "lod":1.2,
+                         "boundaries": [] ,
+                                
                                 "semantics": {
                                     "surfaces": [
                                         {"type": "RoofSurface"},
@@ -102,8 +109,8 @@ def obj_former(id_ ,triangdic , dic, built_num):
                                         {"type": "WallSurface"}
                                     ],
                                 "values": []
-                                },
-                                "type": "MultiSurface"
+                                }
+                                
     }]
     }
 
@@ -114,8 +121,8 @@ def obj_former(id_ ,triangdic , dic, built_num):
         print("falseee")
 
     # take height vals by id
-    top = float(heights_dict[id_]["top"])
-    bot = float(heights_dict[id_]["bottom"])
+    top = round(float(heights_dict[id_]["top"]), 3)
+    bot = round(float(heights_dict[id_]["bottom"]), 3)
     yr_= heights_dict[id_]["yr"]
     del_ht = top-bot
     no_floor = 1 + int((del_ht)/3)
@@ -130,14 +137,29 @@ def obj_former(id_ ,triangdic , dic, built_num):
     len_vert_preexist = len(dic["vertices"])
     len_vert_local = len (vert_list)
 
+    # inner wall faces
+   
+    if id_ in hole_dict.keys():
+        parent_inner_ring_vert_list = []
+        #find the index of the vertices
+        for hole in hole_dict[id_]: #hole is a list of holes with coordinates as sub lists
+            # for coord in hole:
+            #     ind_ = vert_list.tolist().index(coord)
+            #  below gives us indices in local frame of reference for the inner rings
+            sub_inner_ring_vert_list = [ vert_list.tolist().index(coord) for coord in hole]
+            # list containing list of indices for each hole as a child list
+            # [// parent  [//child hole indices 1 ] , [//chile hole indices 2 ] ... ]
+
+            parent_inner_ring_vert_list.append(sub_inner_ring_vert_list) 
+                # print(f"coord is {coord} while in v list at index {ind_} it is {vert_list[ind_]}")
     # create the walls 
     walls = wallgenerator(vert_list, len_vert_preexist)
+
     # store the walls in the build_dict
 
-    face_list_top = [[j+(len_vert_preexist) for j in i.tolist()] for i in tri_list] 
-    face_list_bot = [[j+(len_vert_preexist+len_vert_local) for j in swaporientation(i.tolist())] for i in tri_list] 
-    face_list_bot
-    
+    face_list_top = [[[j+(len_vert_preexist) for j in i.tolist()]] for i in tri_list] 
+    face_list_bot = [[[j+(len_vert_preexist+len_vert_local) for j in swaporientation(i.tolist())]] for i in tri_list] 
+
     to_send_json_vertex_list = np.append(vert_list_top, vert_list_bot, 0)
     
     if append:
@@ -150,8 +172,9 @@ def obj_former(id_ ,triangdic , dic, built_num):
     # print(dic["CityObjects"] )
     dic["vertices"] = original_json_vertex
 
+    # update built dictionary to be pushed into CityJSON dictionary
     build_dict["geometry"][0]["boundaries"] = face_list_top # need to upddate this value to add 
-    build_dict["geometry"][0]["boundaries"] = face_list_bot
+    build_dict["geometry"][0]["boundaries"].extend(face_list_bot)
     build_dict["geometry"][0]["boundaries"].extend(walls)
     build_dict["geometry"][0]["semantics"]["values"] = [0]*len_vert_local + [1]*len_vert_local + [2]*len_vert_local 
     build_dict["attributes"] = { "yearOfConstruction": yr_,
@@ -204,16 +227,17 @@ if __name__ == "__main__":
 
             for hole in subpolygon[1:]:
                 hole_list.append(hole)
-
+            # l = [hole for hole in subpolygon[1:]]
             hole_dict[ID]=hole_list
 
     # print(heights_dict)
     hole_dict = {k:v for k,v in hole_dict.items() if v}
-
+    hole_dict
     count = 0
 
-    for ID in polygon_dict:
-        if count < 15:
+    # for ID in polygon_dict:
+    for ID in hole_dict:
+        if count < len(hole_dict.keys()):
 
             segmentindexlist = []
             segmentindexlist.clear()
