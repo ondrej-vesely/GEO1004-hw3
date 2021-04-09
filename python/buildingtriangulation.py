@@ -61,6 +61,7 @@ def obj_former(id_ ,triangdic , dic, built_num):
     # TODO: attach attributes to the buildings
 
     print(built_num)
+    print(triangdic["triangles"])
     build_dict= {
             "type":"Building",
             "attributes": {},
@@ -105,10 +106,9 @@ def obj_former(id_ ,triangdic , dic, built_num):
     walls = wallgenerator(vert_list, len_vert_preexist)
     # store the walls in the build_dict
 
-    face_list_top = [[j+(len_vert_preexist) for j in i.tolist()] for i in tri_list] 
-    face_list_bot = [[j+(len_vert_preexist+len_vert_local) for j in swaporientation(i.tolist())] for i in tri_list] 
-    face_list_bot
-    
+    face_list_top = [[[j+(len_vert_preexist) for j in i.tolist()]] for i in tri_list] 
+    face_list_bot = [[[j+(len_vert_preexist+len_vert_local) for j in swaporientation(i.tolist())]] for i in tri_list] 
+
     to_send_json_vertex_list = np.append(vert_list_top, vert_list_bot, 0)
     
     if append:
@@ -121,8 +121,9 @@ def obj_former(id_ ,triangdic , dic, built_num):
     # print(dic["CityObjects"] )
     dic["vertices"] = original_json_vertex
 
+    # update built dictionary to be pushed into CityJSON dictionary
     build_dict["geometry"][0]["boundaries"] = face_list_top # need to upddate this value to add 
-    build_dict["geometry"][0]["boundaries"] = face_list_bot
+    build_dict["geometry"][0]["boundaries"].extend(face_list_bot)
     build_dict["geometry"][0]["boundaries"].extend(walls)
     build_dict["geometry"][0]["semantics"]["values"] = [0]*len_vert_local + [1]*len_vert_local + [2]*len_vert_local 
     build_dict["attributes"] = { "yearOfConstruction": yr_,
@@ -173,7 +174,7 @@ if __name__ == "__main__":
 
             for hole in subpolygon[1:]:
                 hole_list.append(hole)
-
+            l = [hole for hole in subpolygon[1:]]
             hole_dict[ID]=hole_list
 
     # print(heights_dict)
@@ -181,7 +182,8 @@ if __name__ == "__main__":
 
     count = 0
 
-    for ID in polygon_dict:
+    # for ID in polygon_dict:
+    for ID in hole_dict:
         if count < 15:
 
             segmentindexlist = []
