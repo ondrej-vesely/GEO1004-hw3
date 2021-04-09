@@ -22,10 +22,6 @@ cj_dict= {
         }
 
 def swaporientation(face):
-    # faceoriginal = face[0]
-    # faceswapped = np.array([faceoriginal[2], faceoriginal[1], faceoriginal[0]], dtype=int32)
-    # faceswapped = [face[2],face[1],face[0]]
-    # return faceswapped
     return [face[2],face[1],face[0]]
 
 def wallgenerator(floorvertexlist, indexstartreference):
