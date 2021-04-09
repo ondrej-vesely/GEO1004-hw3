@@ -39,13 +39,17 @@ def wallgenerator(floorvertexlist, indexstartreference):
         walllist.append([faceA])
 
         #create faceB
-        vertexB1 = indexstartreference+len(floorvertexlist)+1
-        vertexB2 = indexstartreference+len(floorvertexlist)
-        vertexB3 = indexstartreference+1
+        if i != len(floorvertexlist)-1:
+            vertexB1 = indexstartreference+len(floorvertexlist)+1
+            vertexB2 = indexstartreference+len(floorvertexlist)
+            vertexB3 = indexstartreference+1
 
-        faceB = [vertexB1 + i, vertexB2 + i, vertexB3 + i]
-        walllist.append([faceB])
-        
+            faceB = [vertexB1 + i, vertexB2 + i, vertexB3 + i]
+            walllist.append(faceB)
+        else:
+            faceB = [indexstartreference + i, indexstartreference, indexstartreference + 1 + i]
+            walllist.append(faceB)
+
     return walllist
 
 def getgeographicalExtent(floorvertexlist, min_z, max_z):
