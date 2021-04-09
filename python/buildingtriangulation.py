@@ -39,12 +39,16 @@ def wallgenerator(floorvertexlist, indexstartreference):
         walllist.append(faceA)
 
         #create faceB
-        vertexB1 = indexstartreference+len(floorvertexlist)+1
-        vertexB2 = indexstartreference+len(floorvertexlist)
-        vertexB3 = indexstartreference+1
+        if i != len(floorvertexlist)-1:  
+            vertexB1 = indexstartreference+len(floorvertexlist)+1
+            vertexB2 = indexstartreference+len(floorvertexlist)
+            vertexB3 = indexstartreference+1
 
-        faceB = [vertexB1 + i, vertexB2 + i, vertexB3 + i]
-        walllist.append(faceB)
+            faceB = [vertexB1 + i, vertexB2 + i, vertexB3 + i]
+            walllist.append(faceB)
+        else:
+            faceB = [indexstartreference + i, indexstartreference, indexstartreference + 1 + i]
+            walllist.append(faceB)
         
     return walllist
 
@@ -130,9 +134,13 @@ def obj_former(id_ ,triangdic , dic, built_num):
     len_vert_preexist = len(dic["vertices"])
     len_vert_local = len (vert_list)
 
-    # create the walls 
+    # create the walls for the outerring
     walls = wallgenerator(vert_list, len_vert_preexist)
-    # store the walls in the build_dict
+    # create the walls for the innerring
+
+
+
+    #interiorwalls = wallgenerator(hole_vert_list, len)
 
     face_list_top = [[j+(len_vert_preexist) for j in i.tolist()] for i in tri_list] 
     face_list_bot = [[j+(len_vert_preexist+len_vert_local) for j in swaporientation(i.tolist())] for i in tri_list] 
@@ -166,8 +174,18 @@ def obj_former(id_ ,triangdic , dic, built_num):
     print(id_)
     print(len(dic["vertices"]))
     
+    test = triangdic['segments'].tolist()
+    print(test)
     
     return dic
+
+# #end of the exteior ring
+# array([650, 0])
+
+# #begin of the first hole:
+# array([651, 652])
+# #end of the first hole 
+# array([829, 651])
 
 
 
@@ -213,7 +231,8 @@ if __name__ == "__main__":
     count = 0
 
     for ID in polygon_dict:
-        if count < 15:
+        count = count + 1
+        if count > 0 and count < 2:
 
             segmentindexlist = []
             segmentindexlist.clear()
