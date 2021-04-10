@@ -5,6 +5,17 @@
 #include <iterator>
 #include <algorithm>
 
+#include <CGAL/Exact_predicates_inexact_constructions_kernel.h>
+#include <CGAL/Polyhedron_3.h>
+#include <CGAL/Surface_mesh.h>
+#include <CGAL/convex_hull_3.h>
+
+typedef CGAL::Exact_predicates_inexact_constructions_kernel  K;
+typedef CGAL::Polyhedron_3<K>                     Polyhedron_3;
+typedef K::Point_3                                Point_3;
+typedef CGAL::Surface_mesh<Point_3>               Surface_mesh;
+
+
 #include "TreeDetector.h"
 using Point = TreeDetector::Point;
 using Sphere = TreeDetector::Sphere;
@@ -202,12 +213,16 @@ Output:
 void TreeDetector::_add_segment(Sphere& sphere) {
 
 	_tree_count++;
+	std::vector<Point> pts;
+
 	for (int i = 0; i < _input_points.size(); i++) {
 		Point& p = _input_points[i];
 		if (_is_inlier(p, sphere)) {
 			p.segment_id = _tree_count;
+			pts.push_back(p);
 		}
 	}
+	_get_hull(pts);
 }
 
 /*
@@ -221,13 +236,37 @@ Output:
 void TreeDetector::_add_segment(Sphere& sphere, indexArr& chunk) {
 
 	_tree_count++;
+	std::vector<Point> pts;
+
 	for (int i = 0; i < chunk.size(); i++) {
 		Point& p = _input_points[chunk[i]];
 		if (_is_inlier(p, sphere)) {
 			p.segment_id = _tree_count;
+			pts.push_back(p);
 		}
 	}
+	_get_hull(pts);
 }
+
+void TreeDetector::_get_hull(const std::vector<Point> & pts)
+{
+	std::vector<Point_3> points;
+	
+	for (int i = 0; i < pts.size(); i++) {
+		Point_3 p;
+		points.push_back(p);
+	}
+
+	// define polyhedron to hold convex hull
+	Polyhedron_3 poly;
+	// compute convex hull of non-collinear points
+	CGAL::convex_hull_3(points.begin(), points.end(), poly);
+	std::cout << "The convex hull contains " << poly.size_of_vertices() << " vertices" << std::endl;
+	Surface_mesh sm;
+	CGAL::convex_hull_3(points.begin(), points.end(), sm);
+	std::cout << "The convex hull contains " << num_vertices(sm) << " vertices" << std::endl;
+}
+
 
 
 // PLY I/O

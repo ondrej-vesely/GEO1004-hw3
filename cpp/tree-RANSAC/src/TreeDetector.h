@@ -67,6 +67,9 @@ private:
 	//-- Assign unsegmented inliers of plane from the chunk to a new segment
 	void _add_segment(Sphere& sphere, indexArr& chunk);
 
+	//-- Get convex hull of set of points
+	void _get_hull(const std::vector<Point>& pts);
+
 	//-- This variable holds the entire input point cloud after calling read_ply()
 	std::vector<Point> _input_points;
 
