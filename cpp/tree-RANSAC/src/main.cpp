@@ -95,7 +95,7 @@ int main(int argc, char** argv)
 	detector.write_obj(output_obj);
 
 	auto write_finish = std::chrono::high_resolution_clock::now();
-	elapsed = write_finish - start;
+	elapsed = write_finish - segment_finish;
 	std::cout << std::fixed << std::setprecision(3) << "--- OBJ export took " << elapsed.count() << " seconds ---" << std::endl;
 
 	std::cout << std::endl;
