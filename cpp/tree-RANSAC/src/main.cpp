@@ -71,10 +71,14 @@ int main(int argc, char** argv)
 		<< "	chunk_size: " << detector.chunk_size << "\n"
 		<< "	chunk_extrapolate: " << std::boolalpha << detector.chunk_extrapolate << "\n";
 
+	std::cout << std::endl;
+
 	//-- read point cloud from input .ply file, exit if it fails
 	if (!detector.read_ply(input_file)) {
 		return 1;
 	}
+
+	std::cout << std::endl;
 
 	//-- perform plane detection and time how long it takes
 	auto start = std::chrono::high_resolution_clock::now();
@@ -83,10 +87,18 @@ int main(int argc, char** argv)
 		detector.detect_tree(min_score, k);
 	}
 
-	auto finish = std::chrono::high_resolution_clock::now();
-	std::chrono::duration<double> elapsed = finish - start;
+	auto segment_finish = std::chrono::high_resolution_clock::now();
+	std::chrono::duration<double> elapsed = segment_finish - start;
 	std::cout << std::fixed << std::setprecision(3) << "--- Tree segmentation took " << elapsed.count() << " seconds ---" << std::endl;
 
+	//-- write convex hull OBJ
+	detector.write_obj(output_obj);
+
+	auto write_finish = std::chrono::high_resolution_clock::now();
+	elapsed = write_finish - start;
+	std::cout << std::fixed << std::setprecision(3) << "--- OBJ export took " << elapsed.count() << " seconds ---" << std::endl;
+
+	std::cout << std::endl;
 
 	//-- open the viewer
 	runViewer(detector, argc, argv);
