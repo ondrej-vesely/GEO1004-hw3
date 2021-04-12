@@ -1,5 +1,6 @@
 find_package(Corrade REQUIRED Main)
 find_package(Magnum REQUIRED GL Sdl2Application SceneGraph)
+find_package(CGAL)
 
 set_directory_properties(PROPERTIES CORRADE_USE_PEDANTIC_FLAGS ON)
 
@@ -17,6 +18,7 @@ add_executable(hw03
   ${PointShader_RESOURCES}
 )
 target_link_libraries(hw03 PRIVATE
+  CGAL::CGAL
   Corrade::Main
   Magnum::Application
   Magnum::GL

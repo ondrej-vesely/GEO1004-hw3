@@ -15,10 +15,12 @@ class TreeDetector {
 public:
 
 	std::vector<double> tree_radii{ 3,5,7,9,12 };
+
 	//-- Some default params to be loaded from params.json
 	int min_count = 15;
 	double chunk_size = 25;
 	bool chunk_extrapolate = true;
+
 
 	struct Point : double3 {
 		using double3::double3;
@@ -35,6 +37,8 @@ public:
 	bool read_ply(std::string filepath);
 	//-- .PLY writing
 	void write_ply(std::string filepath);
+	//-- .PLY writing
+	void write_obj(std::string filepath);
 	//-- point cloud access (for the viewer application)
 	const std::vector<Point>& get_input_points() {
 		return _input_points;
@@ -45,6 +49,9 @@ private:
 
 	//-- Current count of segmented trees
 	int _tree_count = 0;
+
+	//-- Vector of vectors of indecies for points in each segment
+	std::vector<indexArr> segments;
 
 	//-- Sample from yet unsegmented input points
 	std::vector<Point> _sample(int n);

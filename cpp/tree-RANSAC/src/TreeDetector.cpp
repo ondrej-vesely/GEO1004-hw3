@@ -4,6 +4,18 @@
 #include <cmath>
 #include <iterator>
 #include <algorithm>
+#include <map>
+
+#include <CGAL/Exact_predicates_inexact_constructions_kernel.h>
+#include <CGAL/Polyhedron_3.h>
+#include <CGAL/convex_hull_3.h>
+#include <CGAL/IO/print_wavefront.h>
+#include <CGAL/IO/generic_print_polyhedron.h>
+
+typedef CGAL::Exact_predicates_inexact_constructions_kernel  K;
+typedef CGAL::Polyhedron_3<K>                     Polyhedron_3;
+typedef K::Point_3                                Point_3;
+
 
 #include "TreeDetector.h"
 using Point = TreeDetector::Point;
@@ -202,12 +214,16 @@ Output:
 void TreeDetector::_add_segment(Sphere& sphere) {
 
 	_tree_count++;
+	indexArr segment;
+
 	for (int i = 0; i < _input_points.size(); i++) {
 		Point& p = _input_points[i];
 		if (_is_inlier(p, sphere)) {
 			p.segment_id = _tree_count;
+			segment.push_back( i );
 		}
 	}
+	segments.push_back(segment);
 }
 
 /*
@@ -221,16 +237,67 @@ Output:
 void TreeDetector::_add_segment(Sphere& sphere, indexArr& chunk) {
 
 	_tree_count++;
+	indexArr segment;
+
 	for (int i = 0; i < chunk.size(); i++) {
 		Point& p = _input_points[chunk[i]];
 		if (_is_inlier(p, sphere)) {
 			p.segment_id = _tree_count;
+			segment.push_back( chunk[i] );
 		}
 	}
+	segments.push_back(segment);
 }
 
 
+
 // PLY I/O
+void TreeDetector::write_obj(std::string filepath)
+{
+	std::ofstream file(filepath);
+	int vert_index = 1;
+
+	for (int i = 0; i < segments.size(); i++) {
+
+		indexArr& segment = segments[i];
+		std::vector<Point_3> points;
+
+		for (int j = 0; j < segment.size(); j++) {
+			Point& pt = _input_points[segment[j]];
+			points.push_back(Point_3{ pt.x, pt.y, pt.z });
+		}
+
+		// Generate 3D convex hull
+		Polyhedron_3 hull;
+		CGAL::convex_hull_3(points.begin(), points.end(), hull);
+		
+		// Write object identifier
+		file	<< std::endl << "o " << i << std::endl;
+		// Output vertex coords and keep track of their indecicies
+		std::map<Point_3, int> vertex_map;
+		for (auto v = hull.vertices_begin(); v != hull.vertices_end(); v++)
+		{ 
+			Point_3& point = v->point();
+			vertex_map.emplace(point, vert_index); 
+			vert_index++;
+			file	<< 'v' << ' '
+					<< point.x() << ' '
+					<< point.y() << ' '
+					<< point.z() << std::endl;
+		}
+
+		// Output faces
+		for (auto facet = hull.facets_begin(); facet != hull.facets_end(); facet++)
+		{
+			file		<< 'f';
+			auto halfedge = facet->facet_begin();
+			do	file	<< ' ' << vertex_map[ halfedge->vertex()->point() ];
+			while (++halfedge != facet->facet_begin());
+			file		<< std::endl;
+		}
+	}
+	file.close();
+}
 
 /*
 Function that writes the entire point cloud including the segment_id of each point to a .ply file
@@ -251,6 +318,8 @@ Template:
 	85175.69 446742.58 1.52 1
 	85174.45 446741.94 9.52 1
 */
+
+
 void TreeDetector::write_ply(std::string filepath) {
 
 	std::ofstream file(filepath);
