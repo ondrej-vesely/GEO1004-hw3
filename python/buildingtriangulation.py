@@ -18,36 +18,41 @@ cj_dict= {
         }
 
 def swaporientation(face):
-    # faceoriginal = face[0]
-    # faceswapped = np.array([faceoriginal[2], faceoriginal[1], faceoriginal[0]], dtype=int32)
-    # faceswapped = [face[2],face[1],face[0]]
-    # return faceswapped
     return [face[2],face[1],face[0]]
 
-def wallgenerator(floorvertexlist, indexstartreference):
+def wallgenerator(boundaryfloorvertexlist, indexstartbuilding, indexstartboundary, lengthbuildingvertices):
+
+    indexstartreference = indexstartbuilding + indexstartboundary
     
     walllist = []
 
-    for i in range(len(floorvertexlist)):
+    for i in range(len(boundaryfloorvertexlist)):
         
-        #create faceA
-        vertexA1 = indexstartreference+1
-        vertexA2 = indexstartreference+len(floorvertexlist)
-        vertexA3 = indexstartreference
+        #Every wall face should consist out of two faces, A and B which together triangulate a squared wall surface.
+        if i != len(boundaryfloorvertexlist)-1:  
 
-        faceA = [vertexA1 + i, vertexA2 + i, vertexA3 + i]
-        walllist.append(faceA)
+            #Create face A
+            vertexA1 = indexstartreference+1
+            vertexA2 = indexstartreference+lengthbuildingvertices
+            vertexA3 = indexstartreference
 
-        #create faceB
-        if i != len(floorvertexlist)-1:  
-            vertexB1 = indexstartreference+len(floorvertexlist)+1
-            vertexB2 = indexstartreference+len(floorvertexlist)
+            faceA = [[vertexA1 + i, vertexA2 + i, vertexA3 + i]]
+            walllist.append(faceA)
+
+            #Create face B
+            vertexB1 = indexstartreference+lengthbuildingvertices+1
+            vertexB2 = indexstartreference+lengthbuildingvertices
             vertexB3 = indexstartreference+1
 
-            faceB = [vertexB1 + i, vertexB2 + i, vertexB3 + i]
+            faceB = [[vertexB1 + i, vertexB2 + i, vertexB3 + i]]
             walllist.append(faceB)
+
+        #last faces in the ring should refer to some vertices of first faces in the ring, i therefore needs to be removed for some vertices. 
         else:
-            faceB = [indexstartreference + i, indexstartreference, indexstartreference + 1 + i]
+            faceA = [[indexstartreference+lengthbuildingvertices, indexstartreference+lengthbuildingvertices + i, indexstartreference + i]]
+            walllist.append(faceA)
+
+            faceB = [[indexstartreference + i, indexstartreference, indexstartreference+lengthbuildingvertices]]
             walllist.append(faceB)
         
     return walllist
@@ -89,10 +94,7 @@ def write_CityJSON(json_dic):
 
 
 def obj_former(id_ ,triangdic , dic, built_num):
-    # TODO: calculate extent of geometry
-    # TODO: attach attributes to the buildings
 
-    print(built_num)
     build_dict= {
             "type":"Building",
             "geographicalExtent": [],
@@ -115,7 +117,6 @@ def obj_former(id_ ,triangdic , dic, built_num):
     if dic["CityObjects"] == {}:
         # empty building 1 means first iteration
         append=False
-        print("falseee")
 
     # take height vals by id
     top = float(heights_dict[id_]["top"])
@@ -134,32 +135,52 @@ def obj_former(id_ ,triangdic , dic, built_num):
     len_vert_preexist = len(dic["vertices"])
     len_vert_local = len (vert_list)
 
-    # create the walls for the outerring
-    walls = wallgenerator(vert_list, len_vert_preexist)
-    # create the walls for the innerring
+    # hole finder
+    holelist = []
+    for segment in triangdic["segments"]:
+        if segment[0] > segment[1] + 1:
+            holelist.append(segment[0]) #append the index value of the last vertex in the hole
+        if segment[0] + 1 < segment[1]:
+            holelist.append(segment[1])
 
+    # creating the walls per hole
+    walls = []
 
+    len_prevboundaries = 0
+    previndexcount = 0
+    for hole in holelist:
+        if hole == holelist[0]:
+            vert_list_hole = vert_list[:hole+1]
 
-    #interiorwalls = wallgenerator(hole_vert_list, len)
+            walls = walls + wallgenerator(vert_list_hole, len_vert_preexist, len_prevboundaries, len_vert_local)
 
-    face_list_top = [[j+(len_vert_preexist) for j in i.tolist()] for i in tri_list] 
-    face_list_bot = [[j+(len_vert_preexist+len_vert_local) for j in swaporientation(i.tolist())] for i in tri_list] 
-    face_list_bot
+            len_prevboundaries = len_prevboundaries + len(vert_list_hole)
+
+        else:
+            vert_list_hole = vert_list[holelist[previndexcount]+1:hole+1]
+
+            walls = walls + wallgenerator(vert_list_hole, len_vert_preexist, len_prevboundaries, len_vert_local)
+
+            len_prevboundaries = len_prevboundaries + len(vert_list_hole)
+            previndexcount = previndexcount + 1
+
+    #Fill the build_dict
+    face_list_top = [[[j+(len_vert_preexist) for j in i.tolist()]] for i in tri_list] 
+    face_list_bot = [[[j+(len_vert_preexist+len_vert_local) for j in swaporientation(i.tolist())]] for i in tri_list] 
     
     to_send_json_vertex_list = np.append(vert_list_top, vert_list_bot, 0)
     
     if append:
         original_json_vertex = dic["vertices"]
-        print("printing current val",len(original_json_vertex))
     else:
         original_json_vertex = []
 
     original_json_vertex.extend(to_send_json_vertex_list.tolist())
-    # print(dic["CityObjects"] )
+
     dic["vertices"] = original_json_vertex
 
-    build_dict["geometry"][0]["boundaries"] = face_list_top # need to upddate this value to add 
-    build_dict["geometry"][0]["boundaries"] = face_list_bot
+    build_dict["geometry"][0]["boundaries"] = face_list_top 
+    build_dict["geometry"][0]["boundaries"].extend(face_list_bot)
     build_dict["geometry"][0]["boundaries"].extend(walls)
     build_dict["geometry"][0]["semantics"]["values"] = [0]*len_vert_local + [1]*len_vert_local + [2]*len_vert_local 
     build_dict["attributes"] = { "yearOfConstruction": yr_,
@@ -171,31 +192,13 @@ def obj_former(id_ ,triangdic , dic, built_num):
 
     dic["CityObjects"].update({ id_ : build_dict})
     
-    print(id_)
-    print(len(dic["vertices"]))
-    
-    test = triangdic['segments'].tolist()
-    print(test)
-    
     return dic
-
-# #end of the exteior ring
-# array([650, 0])
-
-# #begin of the first hole:
-# array([651, 652])
-# #end of the first hole 
-# array([829, 651])
-
-
 
 #    __
 #  <(o )___
 #   ( ._> /   M.A.I.N.
 #    `---'   
 if __name__ == "__main__":
-
-
 
     with open('../_data/built_ht.geojson') as f:
         data = geojson.load(f)
@@ -225,21 +228,18 @@ if __name__ == "__main__":
 
             hole_dict[ID]=hole_list
 
-    # print(heights_dict)
     hole_dict = {k:v for k,v in hole_dict.items() if v}
 
     count = 0
 
     for ID in polygon_dict:
         count = count + 1
-        if count > 0 and count < 2:
+        if count > 0:
 
             segmentindexlist = []
             segmentindexlist.clear()
-            # print(segmentindexlist)
             indexcount = 0
             for vertex in polygon_dict[ID][:-1]:
-                #print(vertex)
                 if vertex == polygon_dict[ID][-2]:
                     segmentS = indexcount
                     segmentE = 0
@@ -251,7 +251,6 @@ if __name__ == "__main__":
                 segmentindexlist.append(segment)
                 indexcount = indexcount +1
 
-            # print(segmentindexlist)
             count = count + 1
 
             pointsetexterior = polygon_dict[ID][:-1]
@@ -270,8 +269,6 @@ if __name__ == "__main__":
                     segmentindexlisthole = []
                     segmentindexlisthole.clear()
                     indexcount = len(segmentindexlist)+len(segmentlistholeset)
-                    # print(segmentlistholeset)
-                    # print(len(segmentlistholeset))
 
                     for vertex in hole[:-1]:
 
@@ -300,24 +297,14 @@ if __name__ == "__main__":
 
                 points = dict(vertices = (vertexset))
                 input = dict(segments = segmentset, vertices = (vertexset), holes = centroidlist)
-                # print(input)
                 triangulation = triangle.triangulate(input, 'p')
-                triangle.compare(plt, points, triangulation)
-                # plt.show()
 
             else:
                 points = dict(vertices = (pointsetexterior))
-                # print(points)
                 input = dict(segments = segmentindexlist, vertices = (pointsetexterior))
-                # print(input)
                 triangulation = triangle.triangulate(input, 'p')
-                triangle.compare(plt, points, triangulation)
-                # print(triangulation['vertices'])
-                # print(triangulation['triangles'])
-                # plt.show()
 
             t = triangulation
-            # cj_dict = json.load(open(  os.path.join("..\_data", "building_output.obj"), "w+" ))
             cj_dict = obj_former(ID, t , cj_dict, count)
 
     write_CityJSON(cj_dict)
