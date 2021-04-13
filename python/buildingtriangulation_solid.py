@@ -88,10 +88,56 @@ def getgeographicalExtent(floorvertexlist, min_z, max_z):
 def write_CityJSON(json_dic):
     file_path = os.path.join("../_data", "building_output.json")
     fh = open(file_path, "w+", encoding='utf-8')
-    json.dump(json_dic, fh, ensure_ascii=False, indent=4)
+    json.dump(json_dic, fh, ensure_ascii=False)
     fh.close()
     print("voila! json updated")
 
+def write_obj(objlist):
+    file_path = os.path.join("../_data", "footprint_output.obj")
+    fh = open(file_path, 'w')
+
+    for i in objlist[0]:
+        fh.write(f"v {round(i[0], 3)} {round(i[1], 3)} {round(i[2], 3)}\n")
+    fh.write(f"o 0\n")
+    for j in objlist[1]:
+        fh.write(f"f {j[0]+1} {j[1]+1} {j[2]+1}\n")
+
+def obj_footprint_former(id_,triangdic, built_num, listobj):
+
+    append=True
+    if listobj == []:
+        # empty list means first itteration
+        append=False
+    
+    #define reference to the bottom value
+    bot = float(heights_dict[id_]["bottom"])
+
+    #define the access to the vertices and triangles
+    vert_list = triangdic["vertices"]
+    tri_list = triangdic["triangles"] 
+
+    #define the length of lists
+    len_vert_preexist = len(listobj[0])
+
+    #add the z value to the vert_bot list
+    vert_list_bot = np.array(np.append(i, bot) for i in vert_list)
+
+    face_list_bot = [[j+(len_vert_preexist) for j in swaporientation(i.tolist())] for i in tri_list] 
+
+    if append:
+        original_list_vertices = listobj[0]
+        original_list_faces = listobj[1]
+    else:
+        original_list_vertices = []
+        original_list_faces = []
+
+    original_list_vertices.extend(vert_list_bot.tolist())
+
+    original_list_faces.extend(face_list_bot)
+
+    listobj = [original_list_vertices, original_list_faces]
+
+    return listobj
 
 def obj_former(id_ ,triangdic , dic, built_num):
 
@@ -179,12 +225,15 @@ def obj_former(id_ ,triangdic , dic, built_num):
 
     dic["vertices"] = original_json_vertex
 
+    #nest the boundary one more time to get a double nested list for the solid geometry
     build_dict["geometry"][0]["boundaries"].append([])
     build_dict["geometry"][0]["boundaries"][0].extend(face_list_top) 
     build_dict["geometry"][0]["boundaries"][0].extend(face_list_bot)
     build_dict["geometry"][0]["boundaries"][0].extend(walls)
-    build_dict["geometry"][0]["semantics"]["values"] = [0]*len_vert_local + [1]*len_vert_local + [2]*len_vert_local 
-    build_dict["attributes"] = { "yearOfConstruction": yr_,
+    #nest the values of the semantics to get a nested list for the solid geometry
+    build_dict["geometry"][0]["semantics"]["values"].append([])
+    build_dict["geometry"][0]["semantics"]["values"][0] = [0]*len(tri_list) + [1]*len(tri_list) + [2]*2*len_vert_local 
+    build_dict["attributes"] = { "yearOfConstruction": int(yr_.replace('/', '')),
                                      "measuredHeight": del_ht,
                                      "storeysAboveGround": no_floor
                                 }
@@ -215,7 +264,13 @@ if __name__ == "__main__":
 
         ID = polygon['properties']['identifica']
         polygon_geometry = polygon['geometry']['coordinates']
-        polygon_dict.update({ID:polygon_geometry[0][0]})
+
+        #include correction for buggy building input of building with ID "0503100000000036"
+        if ID == "0503100000000036":
+            polygon_dict.update({ID:polygon_geometry[0][-1]})
+        else:
+            polygon_dict.update({ID:polygon_geometry[0][0]})
+
         heights_dict.update({ID: { "top": polygon['properties']["z_med_top"] , 
                                 "bottom": polygon['properties']["z_med_bott"] , 
                                     "yr":  polygon['properties']["bouwjaar"]}
@@ -224,18 +279,24 @@ if __name__ == "__main__":
         for subpolygon in polygon_geometry:
             hole_list = []
 
-            for hole in subpolygon[1:]:
-                hole_list.append(hole)
+            #include correction for buggy building input of building with ID "0503100000000036"
+            if ID == "0503100000000036":
+                for hole in subpolygon[:-1]:
+                    hole_list.append(hole)
+            else:
+                for hole in subpolygon[1:]:
+                    hole_list.append(hole)
 
             hole_dict[ID]=hole_list
 
     hole_dict = {k:v for k,v in hole_dict.items() if v}
 
     count = 0
-
+    objlist = [[],[]]
+    
     for ID in polygon_dict:
         count = count + 1
-        if count < 15:
+        if count > 0:
 
             segmentindexlist = []
             segmentindexlist.clear()
@@ -308,4 +369,10 @@ if __name__ == "__main__":
             t = triangulation
             cj_dict = obj_former(ID, t , cj_dict, count)
 
+            objlist = obj_footprint_former(ID, t , count, objlist)
+
     write_CityJSON(cj_dict)
+    write_obj(objlist)
+
+    print(objlist[0][-1])
+    print(objlist[1][-1])
