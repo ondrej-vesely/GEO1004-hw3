@@ -41,7 +41,7 @@ with open( '../_data/terra.obj', 'r') as fh:
                         xyz = [float(i) for i in line.split()[1:]]
                         v_lst.append(xyz)
                 if line.startswith("f"):
-                        fxyz = [int(i) for i in line.split()[1:]]
+                        fxyz = [(int(i)-1) for i in line.split()[1:]]
                         f_lst.append([fxyz])
 
 f_lst                        
@@ -53,11 +53,11 @@ dic = {
   "geometry": [{
     "type": "CompositeSurface",
     "lod": 1,
-    "boundaries": f_lst[1000]
+    "boundaries": f_lst
   }]    
 }
 
-cj_dict["vertices"] = v_lst[1000]
+cj_dict["vertices"] = v_lst
 cj_dict["CityObjects"].update({ "ground_only" : dic })
 
 # %%
