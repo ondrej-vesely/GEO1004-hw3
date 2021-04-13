@@ -1,8 +1,5 @@
 # %%
-import matplotlib.pyplot as plt
-import numpy as np
 import json
-import geojson
 import os 
 # %%
 
