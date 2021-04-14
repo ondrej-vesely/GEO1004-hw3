@@ -9,13 +9,10 @@
 #include <CGAL/Exact_predicates_inexact_constructions_kernel.h>
 #include <CGAL/Polyhedron_3.h>
 #include <CGAL/convex_hull_3.h>
-#include <CGAL/IO/print_wavefront.h>
-#include <CGAL/IO/generic_print_polyhedron.h>
 
 typedef CGAL::Exact_predicates_inexact_constructions_kernel  K;
 typedef CGAL::Polyhedron_3<K>                     Polyhedron_3;
 typedef K::Point_3                                Point_3;
-
 
 #include "TreeDetector.h"
 using Point = TreeDetector::Point;
