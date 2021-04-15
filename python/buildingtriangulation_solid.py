@@ -1,6 +1,4 @@
-import fiona
 import triangle
-import matplotlib.pyplot as plt
 import numpy as np
 import json
 import geojson
@@ -9,11 +7,7 @@ import os
 cj_dict= {  
         "type": "CityJSON",
         "version": "1.0",
-        # "metadata": {"geographicalExtent": [] #TODO populate with extent values
-        #             },
-        "CityObjects": { # TODO: fill in building dictionaries here
-                        
-                       },
+        "CityObjects": {},
         "vertices": []
         }
 
@@ -361,6 +355,7 @@ if __name__ == "__main__":
                 input = dict(segments = segmentset, vertices = (vertexset), holes = centroidlist)
                 triangulation = triangle.triangulate(input, 'p')
 
+            #regular part
             else:
                 points = dict(vertices = (pointsetexterior))
                 input = dict(segments = segmentindexlist, vertices = (pointsetexterior))
@@ -371,8 +366,6 @@ if __name__ == "__main__":
 
             objlist = obj_footprint_former(ID, t , count, objlist)
 
+    #exporting 
     write_CityJSON(cj_dict)
     write_obj(objlist)
-
-    print(objlist[0][-1])
-    print(objlist[1][-1])
