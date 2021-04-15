@@ -3,7 +3,7 @@ import os
 import uuid
 import json
 from json import encoder
-encoder.FLOAT_REPR = lambda x: format(x, '.2f') # globally format json floats
+encoder.FLOAT_REPR = lambda x: format(x, '.3f') # globally format json floats
 
 ghpath = ghenv.LocalScope.ghdoc.Path
 ghdir = os.path.dirname(ghpath)
