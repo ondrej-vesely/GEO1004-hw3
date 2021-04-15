@@ -30,7 +30,7 @@ v_lst = []
 f_lst= []
 #  read obj
 # count = -1
-with open( '../_data/terra.obj', 'r') as fh:
+with open( '../_data/OBJ_terr_full.obj', 'r') as fh:
         for line in fh.readlines():
             
                 # count+=1
@@ -40,8 +40,7 @@ with open( '../_data/terra.obj', 'r') as fh:
                 if line.startswith("f"):
                         fxyz = [(int(i)-1) for i in line.split()[1:]]
                         f_lst.append([fxyz])
-
-f_lst                        
+                
 # %%
 
 dic = {
